@@ -92,7 +92,11 @@ En el directorio tvhstar/build tendrás lo necesario para ejecutar el programa.
 
 ### Ejecuión vía systemd
 
-He dejado un ejemplo de fichero `.service` que puedes copiar y utilizar. 
+He dejado un ejemplo de fichero `.service` que puedes utilizar. 
+
+    tvhstar $ chmod 755 tvhstar.sh
+
+Instala el servicio
 
     tvhstar # cp tvhstar.service /etc/systemd/system
     tvhstar # systemctl enable tvhstar.service
