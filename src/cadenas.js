@@ -583,7 +583,7 @@ const cadenas = [
     "movistar_fuente": "239.0.9.81:8208",
     "movistar_id": "BEMAX1",
     "movistar_nombre": "Bein Max1",
-    "movistar_numero": "50",
+    "movistar_numero": "51",
     "tvh_id": "BEMAX1.es",
     "tvh_m3u": true,
     "tvh_nombre": "Bein Max1 HD",
