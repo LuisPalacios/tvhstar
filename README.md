@@ -14,9 +14,15 @@ una petición web de tipo POST parametrizado y convierte lo que recibe (XML movi
 ## Instalación
 
 Está desarrollado en Javascript y pensado para ejecutarse como daemon en node.js, 
-probado con la versión 4.6.x tanto en Mac OS como en Linux. En mi caso lo voy a montar
+probado con la versión 6.9.x tanto en Mac OS como en Linux. En mi caso lo voy a montar
 en el mismo servidor donde tengo instalado Tvheadend (linux basado en Gentoo). Primero instalo node.js:
 
+    ~ # cat /etc/portage/package.accept_keywords
+    :
+    # node 6.9
+    =dev-libs/libuv-1.10.0 ~amd64
+    =net-libs/nodejs-6.9.2 ~amd64
+    
     ~ # emerge -v nodejs
 
 Preparo el proyecto, librerías y ejecuto el build: 
