@@ -59,15 +59,7 @@ const movistar = {
       rp(options)
         .then((response) => {
           console.log(`  => OK, se recibieron datos`);
-          console.log(`  => Escribiendo los datos en el fichero ${progPreferences.ficheroXML}`);
-          fs.writeFile(progPreferences.ficheroXML, response.body, function(error){
-            if (error) {
-              console.log(`  => Error escribiendo en el fichero`);
-              reject(error);
-            }
-            console.log(`  => Se ha salvado el fichero correctamente`);
-          });
-          resolve();
+          resolve(response);
         })
         .catch((err) => {
           reject(err);

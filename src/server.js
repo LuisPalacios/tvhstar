@@ -185,7 +185,16 @@ function sessionController() {
     console.log(`  => EPG ${progPreferences.diasInicioFin.fechaInicio} -> ${progPreferences.diasInicioFin.fechaFin}`);
     Movistar.requestEPG(progPreferences)
       .then((response) => {
-        conversionCompletaDeEPGaXMLTV();
+        console.log(`  => Escribiendo los datos en el fichero ${progPreferences.ficheroXML}`);
+        fs.writeFile(progPreferences.ficheroXML, response.body, function(error){
+          if (error) {
+            console.log(`  => Error escribiendo en el fichero`);
+            reject(error);
+          } else {
+            console.log(`  => Se ha salvado el fichero correctamente`);
+            conversionCompletaDeEPGaXMLTV();      
+          }
+        });
       })
       .catch((err) => {
         if (err.error) {
