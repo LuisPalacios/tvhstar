@@ -1,0 +1,14 @@
+[Unit]
+Description=tvhstar backend
+After=syslog.target network.target
+
+[Service]
+Type=simple
+PIDFile=/run/tvhstar.pid
+ExecStart=/home/luis/tvhstar/tvhstar
+ExecStop=/bin/rm /run/tvhstar.pid
+Restart=on-failure
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target

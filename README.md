@@ -72,9 +72,7 @@ no los tengo contratados.
        en vez de [uri_prefix]{movistar_fuente}
  
 
-
-
-## Construcción
+## Construcción (build)
 
 Construyo la versión antes de poder ejecutar. 
 
@@ -83,18 +81,23 @@ Construyo la versión antes de poder ejecutar.
 
 ## Ejecución
 
-En el directorio tvhstar/build tendrás lo necesario para ejecutar el programa. Puedes hacerlo 
-manualmente o a través del método que prefieras (crontab, systemd, ...), 
-a continuación una ejecución manual en el terminal. 
+Antes de arrancar el programa revissa la variable `ficheroXMLTV` en `server.js` para que apunte 
+al directorio final donde quieres dejar tu fichero XMLTV resultante. 
+
+### Ejecución manual
+
+En el directorio tvhstar/build tendrás lo necesario para ejecutar el programa.
 
     tvhstar $ npm run start
 
-Cuando veas que ha terminado el primer ciclo podrás copiar el fichero resultante al
-sitio donde Tvheadend espera el fichero. En mi caso es el siguiente: 
 
-    tvhstar $ cp guia.movistar-xmltv.xml /home/luis/guia
+### Ejecuión vía systemd
 
-Alternativa: Modifica la variable `ficheroXMLTV` en `server.js` para que apunte al fichero directamente. 
+He dejado un ejemplo de fichero `.service` que puedes copiar y utilizar. 
+
+    tvhstar # cp tvhstar.service /etc/systemd/system
+    tvhstar # systemctl enable tvhstar.service
+    tvhstar # systemctl start tvhstar.service
 
 
 ## M3U

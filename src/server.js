@@ -72,10 +72,13 @@ let progPreferences = {
   //
   // En resumen:   XML(movistar)->JSON(movistar)->JSON(xmltv)->XML(xmltv)
   //
-  ficheroXML: './guia.movistar-xml.xml',
-  ficheroJSON: './guia.movistar-xml.json',
-  ficheroJSONTV: './guia.movistar-xmltv.json',
-  ficheroXMLTV: './guia.movistar-xmltv.xml',
+  // Ficheros temporales
+  ficheroXML: '/tmp/guia.movistar-xml.xml',
+  ficheroJSON: '/tmp/guia.movistar-xml.json',
+  ficheroJSONTV: '/tmp/guia.movistar-xmltv.json',
+  //
+  // Fichero final 
+  ficheroXMLTV: '/home/luis/guia/guia.xml',
 
   // El programa ejecutará una descarga del EPG nada más arrancar y se quedará 
   // ejecutándose en el background hasta una hora determinada el día siguiente. 
