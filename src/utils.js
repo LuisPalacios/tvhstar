@@ -152,128 +152,137 @@ const utils = {
       },
     }
 
-    // Analizar cada pase
-    datosJSON.export.pase.forEach(function (pase) {
+    if ( datosJSON.export.pase === undefined ) {
+      console.log('=============================================')
+      console.log('HE RECIBIDO UNA RESPUESTA VACIA !!!!!!!!!!!!!')
+      console.log('=============================================')
 
-      // Busco el nombre de la cadena en cadenas[]
-      let movistar_nombre = pase["$"].cadena;
-      let index = progPreferences.cadenas.findIndex(item => item.movistar_nombre === movistar_nombre);
+      return {};
 
-      if ( index === -1 ) {
-        console.log('=============================================')
-        console.log('convierteJSONaJSONTV ...')
-        console.log('ATENCIÓN NO HE PODIDO ENCONTRAR EL CANAL: ')
-        console.log(`movistar_nombre: ${movistar_nombre}`);
-        console.log(`index: ${index}`);
-        console.log('=============================================')
-      } else {
+    } else {
 
-        let channel_id = progPreferences.cadenas[index].tvh_id;
-        let display_name = progPreferences.cadenas[index].tvh_nombre;
+      // Analizar cada pase
+      datosJSON.export.pase.forEach(function (pase) {
 
-        // A pelo, el lenguaje siempre será 'es'
-        let langES = 'es';
+        // Busco el nombre de la cadena en cadenas[]
+        let movistar_nombre = pase["$"].cadena;
+        let index = progPreferences.cadenas.findIndex(item => item.movistar_nombre === movistar_nombre);
 
-        // SECCIÓN 'channel'
-        // -------------------
+        if ( index === -1 ) {
+          console.log('=============================================')
+          console.log('convierteJSONaJSONTV ...')
+          console.log('ATENCIÓN NO HE PODIDO ENCONTRAR EL CANAL: ')
+          console.log(`movistar_nombre: ${movistar_nombre}`);
+          console.log(`index: ${index}`);
+          console.log('=============================================')
+        } else {
 
-        // En el fichero origen (EPG de movistar) los nombres de los 
-        // canales vienen dentro de cada 'pase', así que voy a ir 
-        // descubriéndolos de forma dinámica. 
-        let isCanalGuardado = jsontv.tv.channel.findIndex(item => item["$"].id === channel_id) !== -1 ? true : false;
-        if (!isCanalGuardado) {
-          let channel = {
+          let channel_id = progPreferences.cadenas[index].tvh_id;
+          let display_name = progPreferences.cadenas[index].tvh_nombre;
+
+          // A pelo, el lenguaje siempre será 'es'
+          let langES = 'es';
+
+          // SECCIÓN 'channel'
+          // -------------------
+
+          // En el fichero origen (EPG de movistar) los nombres de los 
+          // canales vienen dentro de cada 'pase', así que voy a ir 
+          // descubriéndolos de forma dinámica. 
+          let isCanalGuardado = jsontv.tv.channel.findIndex(item => item["$"].id === channel_id) !== -1 ? true : false;
+          if (!isCanalGuardado) {
+            let channel = {
+              "$": {
+                "id": channel_id
+              },
+              "display-name": [
+                {
+                  "_": display_name,
+                  "$": {
+                    "lang": langES
+                  }
+                }
+              ]
+            };
+            jsontv.tv.channel.push( channel );
+            progPreferences.numChannels = progPreferences.numChannels + 1;
+          }
+
+          // SECCIÓN 'programme'
+          // -------------------
+
+          // Convierto la fecha/hora del pase a formato objeto (Date) de modo que 
+          // pueda hacer operaciones de forma sencilla. 
+          let [year, month, day] = pase["$"].fecha.split("-");
+          let [hours, minutes, seconds] = pase.hora[0].split(":");
+          let programmeStartDateObject = new Date(year, month-1, day, hours, minutes, seconds, 0); 
+
+          // Convierto la fecha para el campo 'date' : YYYYMMMDD
+          let programme_date = `${year}${month}${day}`;
+          // Convierto la hora para el campo 'start' : YYYYMMMDDHHMMSS00 ?TTTT
+          let programme_start = `${year}${month}${day}${hours}${minutes}${seconds} ${offset}`;
+
+          // Añado mi start como el stop del pase anterior...
+          if ( lastProgrammes[channel_id] !== undefined ) {
+            let lastProgramme = lastProgrammes[channel_id];
+            lastProgramme["$"].stop = programme_start;
+          }
+
+          // Preparo el pase en el nuevo formato
+          let programme = {
             "$": {
-              "id": channel_id
+              "start": `${programme_start}`,
+              "channel": channel_id
             },
-            "display-name": [
+            "title": [
               {
-                "_": display_name,
+                "_": pase.titulo[0],
+                "$": {
+                  "lang": langES
+                }
+              }
+            ],
+            "sub-title": [
+              {
+                "_": pase.descripcion_corta[0],
+                "$": {
+                  "lang": langES
+                }
+              }
+            ],
+            "desc": [
+              {
+                "_": pase.sinopsis_larga[0],
+                "$": {
+                  "lang": langES
+                }
+              }
+            ],
+            "date": [
+              {
+                "_": `${programme_date}`
+              }
+            ],
+            "category": [
+              {
+                "_": pase.tipo_ficha[0],
                 "$": {
                   "lang": langES
                 }
               }
             ]
           };
-          jsontv.tv.channel.push( channel );
-          progPreferences.numChannels = progPreferences.numChannels + 1;
+
+          // Salvo el puntero a este programme para poder
+          // añadirle el 'stop' cuando descubra el siguiente (start)
+          lastProgrammes[channel_id] = programme;
+
+          // Añado el programa al buffer de salida 
+          jsontv.tv.programme.push(programme);
+          progPreferences.numProgrammes = progPreferences.numProgrammes + 1;
         }
-
-        // SECCIÓN 'programme'
-        // -------------------
-
-        // Convierto la fecha/hora del pase a formato objeto (Date) de modo que 
-        // pueda hacer operaciones de forma sencilla. 
-        let [year, month, day] = pase["$"].fecha.split("-");
-        let [hours, minutes, seconds] = pase.hora[0].split(":");
-        let programmeStartDateObject = new Date(year, month-1, day, hours, minutes, seconds, 0); 
-
-        // Convierto la fecha para el campo 'date' : YYYYMMMDD
-        let programme_date = `${year}${month}${day}`;
-        // Convierto la hora para el campo 'start' : YYYYMMMDDHHMMSS00 ?TTTT
-        let programme_start = `${year}${month}${day}${hours}${minutes}${seconds} ${offset}`;
-
-        // Añado mi start como el stop del pase anterior...
-        if ( lastProgrammes[channel_id] !== undefined ) {
-          let lastProgramme = lastProgrammes[channel_id];
-          lastProgramme["$"].stop = programme_start;
-        }
-
-        // Preparo el pase en el nuevo formato
-        let programme = {
-          "$": {
-            "start": `${programme_start}`,
-            "channel": channel_id
-          },
-          "title": [
-            {
-              "_": pase.titulo[0],
-              "$": {
-                "lang": langES
-              }
-            }
-          ],
-          "sub-title": [
-            {
-              "_": pase.descripcion_corta[0],
-              "$": {
-                "lang": langES
-              }
-            }
-          ],
-          "desc": [
-            {
-              "_": pase.sinopsis_larga[0],
-              "$": {
-                "lang": langES
-              }
-            }
-          ],
-          "date": [
-            {
-              "_": `${programme_date}`
-            }
-          ],
-          "category": [
-            {
-              "_": pase.tipo_ficha[0],
-              "$": {
-                "lang": langES
-              }
-            }
-          ]
-        };
-
-        // Salvo el puntero a este programme para poder
-        // añadirle el 'stop' cuando descubra el siguiente (start)
-        lastProgrammes[channel_id] = programme;
-
-        // Añado el programa al buffer de salida 
-        jsontv.tv.programme.push(programme);
-        progPreferences.numProgrammes = progPreferences.numProgrammes + 1;
-      }
-    });
-
+      });
+    }
     return (jsontv);
   },
 
