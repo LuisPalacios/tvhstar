@@ -1,20 +1,20 @@
 ## Introducción
 
-Descarga periódica el EPG desde Movistar TV a un fichero guia.xml para que pueda ser consumo por Tvheadend. 
-Este proyecto está vinculado al apunte [Tvheadend y Movistar TV (2016)](http://www.luispa.com/archivos/4571),
-tenlo en cuenta por los nombres de directorios utilizados.
+Descarga periódica de la programación (EPG) de Movistar TV a un fichero XMLTV (guia.xml) para que
+pueda ser consumo por Tvheadend. Está vinculado al apunte [Tvheadend y Movistar TV (2016)](http://www.luispa.com/archivos/4571),
+tenlo en cuenta para entender el contexto y nombres de directorios utilizados.
 
 Movistar TV tiene una página desde la cual se puede [Exportar la Programación](http://comunicacion.movistarplus.es/guiaProgramacion/exportarProgramacion),
 puedes seleccionar qué cadenas y formato (xml, csv, excel, texto) prefieres. El formato XML es propietario
-de Movistar y no vale para Tvheadend. 
+y no vale para Tvheadend. 
 
-Este proyecto descarga automáticamente la programación de forma periódica (una vez al día) utilizando
-una petición web de tipo POST parametrizado y convierte el formato XML recibido a XMLTV. 
+`tvhstar` descarga automáticamente la programación (una vez al día) utilizando
+una petición web de tipo POST parametrizado y convierte lo que recibe (XML movistar) a XMLTV (compatible con Tvheadend). 
 
 ## Instalación
 
-Este proyecto está desarrollado en Javascript y pensado para ejecutarse como un daemon con node.js, 
-probado con éxito con la versión 4.6.x tanto en Mac OS como en Linux. En mi caso lo voy a montar
+Está desarrollado en Javascript y pensado para ejecutarse como daemon en node.js, 
+probado con la versión 4.6.x tanto en Mac OS como en Linux. En mi caso lo voy a montar
 en el mismo servidor donde tengo instalado Tvheadend (linux basado en Gentoo). Primero instalo node.js:
 
     ~ # emerge -v nodejs
@@ -83,8 +83,7 @@ sitio donde Tvheadend espera el fichero. En mi caso es el siguiente:
 
     tvhstar $ cp guia.movistar-xmltv.xml /home/luis/guia
 
-En esta versión todavía no he automatizado dicha copia, pero es algo que añadiré al propio
-servidor. 
+En una futura versión `tvhstar` hará la copia por ti.
 
 
 ## M3U
@@ -102,7 +101,7 @@ Recuerda que el directorio de Tvheadend puede ser distinto en tu caso.
 
 ### movistar_id
 
-El 'movistar_id' es un campo importante porque es el que define el 'id' interno 
+La clave 'movistar_id' (`src/cadenas.js`) es un campo importante porque es el que define el 'id' interno 
 que utiliza movistar para identificar cada uno de sus canales al realizar el POST.
 Dejo documentado (para no olvidarme) cómo saqué dichos id's: 
     
@@ -111,13 +110,12 @@ Desde un Terminal preparo `tcpdump` en mi Mac como root:
     # tcpdump -s 0 -A 'tcp dst port 80 and (tcp[((tcp[12:1] & 0xf0) >> 2):4] = 0x504f5354)'
     
 En paralelo, desde un browser pido la programación solo del día de HOY 
-seleccionando Todos los canales y solicito una esportación a cualquier formato
+seleccionando Todos los canales y solicito una esportación a cualquier formato desde aquí:
 
-    `http://comunicacion.movistarplus.es/guiaProgramacion/exportarProgramacion`
+    http://comunicacion.movistarplus.es/guiaProgramacion/exportarProgramacion`
 
-En el terminal veré como captura la petición POST. Copio/Pego la última línea a 'cadena.txt' 
-
-    `fechaInicio=2017-01-05&fechaFin=2017-01-05&genero=0...`
+En el terminal veré como captura la petición POST. Copio/Pego la última línea a 'cadena.txt'. 
+La línea que empieza por: `fechaInicio=2017-01-05&fechaFin=2017-01-05&genero=0...`
     
 Postproceso 'cadena.txt' para tener los ids
  
