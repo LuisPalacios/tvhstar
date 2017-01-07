@@ -32,6 +32,11 @@ Deberías revisar y modificar dos ficheros antes de ejecutar el programa:
     * src/server.js -> objeto "progPreferences"
     * src/cadenas.js
 
+Un parámetro interesante es el fichero de salida del XMLTV, si ejecutas node.js en el mismo equipo donde está Tvheadend y con el mismo usuario donde tienes tu fichero guia.xml, basta con indicar el path directo
+
+    ficheroXMLTV: '/home/luis/guia/guia.xml',
+
+
 ### Cadenas
 
 En `src/cadenas.js` mantengo mi lista de todos los canales de Movistar TV y 
@@ -83,7 +88,7 @@ sitio donde Tvheadend espera el fichero. En mi caso es el siguiente:
 
     tvhstar $ cp guia.movistar-xmltv.xml /home/luis/guia
 
-En una futura versión `tvhstar` hará la copia por ti.
+Alternativa: Modifica la variable `ficheroXMLTV` en `server.js` para que apunte al fichero directamente. 
 
 
 ## M3U
