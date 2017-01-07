@@ -1,5 +1,7 @@
 ## Introducción
 
+!! Nota: Todavía no están todos los picons ni todos los canales !!
+
 Descarga periódica de la programación (EPG) de Movistar TV a un fichero XMLTV (guia.xml) para que
 pueda ser consumo por Tvheadend. Está vinculado al apunte [Tvheadend y Movistar TV (2016)](http://www.luispa.com/archivos/4571),
 tenlo en cuenta para entender el contexto y nombres de directorios utilizados.
