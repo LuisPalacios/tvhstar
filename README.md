@@ -4,6 +4,12 @@ Descarga periódica el EPG desde Movistar TV a un fichero guia.xml para que pued
 Este proyecto está vinculado al apunte [Tvheadend y Movistar TV (2016)](http://www.luispa.com/archivos/4571),
 tenlo en cuenta por los nombres de directorios utilizados.
 
+Movistar TV tiene una página desde la cual se puede [Exportar la Programación](http://comunicacion.movistarplus.es/guiaProgramacion/exportarProgramacion),
+puedes seleccionar qué cadenas y formato (xml, csv, excel, texto) prefieres. El formato XML es propietario
+de Movistar y no vale para Tvheadend. 
+
+Este proyecto descarga automáticamente la programación de forma periódica (una vez al día) utilizando
+una petición web de tipo POST parametrizado y convierte el formato XML recibido a XMLTV. 
 
 ## Instalación
 
