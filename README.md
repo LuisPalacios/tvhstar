@@ -113,6 +113,12 @@ con tu Tvheadend actual.
     
 Recuerda que el directorio de Tvheadend puede ser distinto en tu caso.  
   
+## PICONS (2017)
+
+Copio en el directorio `picons` los logos de los canales para poder copiarlos a tvheadend tal como 
+describo en el apunte [Tvheadend y Movistar TV (2016)](http://www.luispa.com/archivos/4571). Los
+logos están actualizados a fecha enero de 2017
+
 
 ## Información adicional
 

@@ -26,6 +26,8 @@
 import Utils from './utils';
 import Movistar from './movistar';
 import Cadenas from './cadenas';
+import CadenasSD from './cadenas_sd';
+import CadenasDIN from './cadenas_dinamico';
 import fs from 'fs';
 
 // Timers
@@ -46,6 +48,12 @@ let progPreferences = {
   // 
   // Nombre del fichero de salida donde dejaré la lista de canales IPTV
   ficheroM3U: './tv.m3u',
+  // Canales extra SD que pretendo añadir para cuando quiera verlos desde
+  // un dispositivo portatil vía wifi, al consumer mucho menos ancho de 
+  // banda irán mejor.
+  cadenas_sd: CadenasSD,
+  // Canales dinámicos que sobreescriben la fuente en el fichero m3u
+  cadenas_din: CadenasDIN,
 
   // Durante la creación del fichero tv.m3u se pone la URL del canal, pero como 
   // tenemos dos opciones (UDP o TCP) a continuación debes modificar la siguiente
@@ -113,7 +121,7 @@ let progPreferences = {
   isConversionRunning: false,
 
   // Modo desarrollador (asume que ya se ha descargado el EPG),
-  developerMode: false, // Cambiar a 'false' en producción.
+  developerMode: true, // Cambiar a 'false' en producción.
 
 }
 
@@ -150,16 +158,36 @@ function sessionController() {
 
   // M3U: 
   // 
+  // sobreescribo con los dinámicos
+  progPreferences.cadenas_din.map(cadena_din => {
+    let index = progPreferences.cadenas.findIndex(item => item.movistar_numero === cadena_din.movistar_numero);
+    if ( index !== -1 ) {
+      progPreferences.cadenas[index].tvh_nombre = cadena_din.tvh_nombre;
+      progPreferences.cadenas[index].tvh_tag = cadena_din.tvh_tag;
+      progPreferences.cadenas[index].tvh_fuente = cadena_din.tvh_fuente;
+    }
+  });
   // Genero el fichero .m3u (el encoding por defecto es utf8)
   var wstream = fs.createWriteStream(progPreferences.ficheroM3U);
   wstream.write('#EXTM3U\n');
   progPreferences.cadenas.map(cadena => {
     if ( cadena.tvh_m3u === true ) {
-      wstream.write(`#EXTINF:-1 tvh-epg="disable" tvh-chnum="${cadena.movistar_numero}" tvh-tags="tv",${cadena.tvh_nombre}\n`);
+      wstream.write(`#EXTINF:-1 tvh-epg="disable" tvh-chnum="${cadena.movistar_numero}" tvh-tags="${cadena.tvh_tag}",${cadena.tvh_nombre}\n`);
       if ( cadena.tvh_fuente !== undefined ) {
         wstream.write(`${cadena.tvh_fuente}\n`);
       } else {
         wstream.write(`${progPreferences.uri_prefix}${cadena.movistar_fuente}\n`);
+      }
+    }
+  });
+  // añado los canales SD
+  progPreferences.cadenas_sd.map(cadena_sd => {
+    if ( cadena_sd.tvh_m3u === true ) {
+      wstream.write(`#EXTINF:-1 tvh-epg="disable" tvh-chnum="${cadena_sd.movistar_numero}" tvh-tags="${cadena_sd.tvh_tag}",${cadena_sd.tvh_nombre}\n`);
+      if ( cadena_sd.tvh_fuente !== undefined ) {
+        wstream.write(`${cadena_sd.tvh_fuente}\n`);
+      } else {
+        wstream.write(`${progPreferences.uri_prefix}${cadena_sd.movistar_fuente}\n`);
       }
     }
   });
