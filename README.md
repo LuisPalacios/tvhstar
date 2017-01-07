@@ -13,9 +13,8 @@ una petición web de tipo POST parametrizado y convierte lo que recibe (XML movi
 
 ## Instalación
 
-Está desarrollado en Javascript y pensado para ejecutarse como daemon en node.js, 
-probado con la versión 6.9.x tanto en Mac OS como en Linux. En mi caso lo voy a montar
-en el mismo servidor donde tengo instalado Tvheadend (linux basado en Gentoo). Primero instalo node.js:
+Está desarrollado en Javascript y pensado para ejecutarse como daemon en node.js, cuidado que con la versión 4.6.x no me ha funcionado, lo he probado con la versión 6.9.x tanto en Mac OS como en Linux y funcionan correctamente. En mi caso lo voy a montar
+en el mismo linux donde tengo instalado Tvheadend (linux basado en Gentoo). Primero instalo node.js:
 
     ~ # cat /etc/portage/package.accept_keywords
     :
