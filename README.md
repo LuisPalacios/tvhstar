@@ -11,8 +11,6 @@ y no vale para Tvheadend.
 `tvhstar` descarga automáticamente la programación (una vez al día) utilizando
 una petición web de tipo POST parametrizado y convierte lo que recibe (XML movistar) a XMLTV (compatible con Tvheadend). 
 
-## Aviso navegantes
-
 El estado de este proyecto es el siguiente: 
 
     - El programa ya funciona, 1) descarga el EPG y lo convierte a XMLTV y 2) crea un fichero tv.m3u, ambos compatibles con Tvheadend
