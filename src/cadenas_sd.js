@@ -9,14 +9,14 @@
 // añado a partir del canal 200 en mi fichero tv.m3u, muy útiles para 
 // cuando veo los canales desde dispositivos móviles. 
 //
-// NOTA: Este fichero está todavía WORK IN PROGRESS !!!!!!!!!!
+// NOTA: Me falta revisar algunos canales
 //
 // Cadenas de TV
-
+//
 const cadenassd = [
   {
     "movistar_epg": false,
-    "movistar_fuente": "239.0.0.77:8208",
+    "movistar_fuente": "239.0.0.76:8208",
     "movistar_id": "TVE",
     "movistar_nombre": "LA 1",
     "movistar_numero": 201,
@@ -70,6 +70,17 @@ const cadenassd = [
     "tvh_tag": "SD"
   },
   {
+    "movistar_epg": true,
+    "movistar_fuente": "239.0.0.108:8208",
+    "movistar_id": "MV3",
+    "movistar_nombre": "#0",
+    "movistar_numero": "207",
+    "tvh_id": "MV3.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "#0",
+    "tvh_tag": "HD"
+  },
+  {
     "movistar_epg": false,
     "movistar_fuente": "239.0.0.74:8208",
     "movistar_id": "FOXGE",
@@ -80,352 +91,238 @@ const cadenassd = [
     "tvh_nombre": "FOX",
     "tvh_tag": "SD"
   },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.0.14:8208",
+    "movistar_id": "AXN",
+    "movistar_nombre": "AXN",
+    "movistar_numero": 214,
+    "tvh_id": "AXN.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "AXN",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.0.44:8208",
+    "movistar_id": "TNT",
+    "movistar_nombre": "TNT",
+    "movistar_numero": 215,
+    "tvh_id": "TNT.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "TNT",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.0.68:8208",
+    "movistar_id": "PCM",
+    "movistar_nombre": "Comedy Central",
+    "movistar_numero": 216,
+    "tvh_id": "PCM.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Comedy Central",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.0.13:8208",
+    "movistar_id": "CL13",
+    "movistar_nombre": "Calle 13",
+    "movistar_numero": 217,
+    "tvh_id": "CL13.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Calle 13",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.0.15:8208",
+    "movistar_id": "COSMO",
+    "movistar_nombre": "COSMO",
+    "movistar_numero": 218,
+    "tvh_id": "COSMO.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "COSMO",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.0.8:8208",
+    "movistar_id": "AMC",
+    "movistar_nombre": "AMC",
+    "movistar_numero": 219,
+    "tvh_id": "AMC.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "AMC",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.0.112:8208",
+    "movistar_id": "FOXCR",
+    "movistar_nombre": "Fox Life",
+    "movistar_numero": 220,
+    "tvh_id": "FOXCR.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "FOX life",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.0.62:8208",
+    "movistar_id": "SET",
+    "movistar_nombre": "AXN White",
+    "movistar_numero": 221,
+    "tvh_id": "SET.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "AXN White",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.0.111:8208",
+    "movistar_id": "SCI-FI",
+    "movistar_nombre": "SYFY",
+    "movistar_numero": 222,
+    "tvh_id": "SCI-FI.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "SyFy",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.0.212:8208",
+    "movistar_id": "NONSTP",
+    "movistar_nombre": "Non Stop People",
+    "movistar_numero": 223,
+    "tvh_id": "NONSTP.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Non Stop People",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.3.40:8208",
+    "movistar_id": "MV1",
+    "movistar_nombre": "Movistar Estrenos",
+    "movistar_numero": 231,
+    "tvh_id": "MV1.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Movistar Estrenos",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.3.41:8208",
+    "movistar_id": "CPXTRA",
+    "movistar_nombre": "Movistar Xtra",
+    "movistar_numero": "232",
+    "tvh_id": "CPXTRA.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Movistar Xtra",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.3.42:8208",
+    "movistar_id": "CPACCI",
+    "movistar_nombre": "Movistar Acción",
+    "movistar_numero": "233",
+    "tvh_id": "CPACCI.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Movistar Acción",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.3.43:8208",
+    "movistar_id": "CPCOME",
+    "movistar_nombre": "Movistar Comedia",
+    "movistar_numero": "234",
+    "tvh_id": "CPCOME.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Movistar Comedia",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.3.44:8208",
+    "movistar_id": "CPCOLE",
+    "movistar_nombre": "Movistar DCine",
+    "movistar_numero": "235",
+    "tvh_id": "CPCOLE.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Movistar DCine",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.3.45:8208",
+    "movistar_id": "DCESP",
+    "movistar_nombre": "Movistar Cine Español",
+    "movistar_numero": "236",
+    "tvh_id": "DCESP.es",
+    "tvh_m3u": false,
+    "tvh_nombre": "Movistar Cine Español",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.6.5:8208",
+    "movistar_id": "TCM",
+    "movistar_nombre": "TCM",
+    "movistar_numero": "237",
+    "tvh_id": "TCM.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "TCM",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.0.16:8208",
+    "movistar_id": "HOLLYW",
+    "movistar_nombre": "Hollywood",
+    "movistar_numero": "238",
+    "tvh_id": "HOLLYW.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Hollywood",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.0.102:8208",
+    "movistar_id": "SUNDAN",
+    "movistar_nombre": "Sundance",
+    "movistar_numero": "239",
+    "tvh_id": "SUNDAN.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Sundance Channel",
+    "tvh_tag": "SD"
+  },
 
-
-
-
-
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.9.131:8208",
-  //   "movistar_id": "AXN",
-  //   "movistar_nombre": "AXN",
-  //   "movistar_numero": 214,
-  //   "tvh_id": "AXN.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "AXN",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.5.87:8208",
-  //   "movistar_id": "TNT",
-  //   "movistar_nombre": "TNT",
-  //   "movistar_numero": 215,
-  //   "tvh_id": "TNT.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "TNT",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.0.174:8208",
-  //   "movistar_id": "PCM",
-  //   "movistar_nombre": "Comedy Central",
-  //   "movistar_numero": 216,
-  //   "tvh_id": "PCM.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "Comedy Central",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.5.74:8208",
-  //   "movistar_id": "CL13",
-  //   "movistar_nombre": "Calle 13",
-  //   "movistar_numero": 217,
-  //   "tvh_id": "CL13.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "Calle 13",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.5.71:8208",
-  //   "movistar_id": "COSMO",
-  //   "movistar_nombre": "COSMO",
-  //   "movistar_numero": 218,
-  //   "tvh_id": "COSMO.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "COSMO",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.9.132:8208",
-  //   "movistar_id": "AMC",
-  //   "movistar_nombre": "AMC",
-  //   "movistar_numero": 219,
-  //   "tvh_id": "AMC.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "AMC",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.5.86:8208",
-  //   "movistar_id": "FOXCR",
-  //   "movistar_nombre": "Fox Life",
-  //   "movistar_numero": 220,
-  //   "tvh_id": "FOXCR.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "FOX life",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.5.79:8208",
-  //   "movistar_id": "SET",
-  //   "movistar_nombre": "AXN White",
-  //   "movistar_numero": 221,
-  //   "tvh_id": "SET.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "AXN White",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.5.75:8208",
-  //   "movistar_id": "SCI-FI",
-  //   "movistar_nombre": "SYFY",
-  //   "movistar_numero": 222,
-  //   "tvh_id": "SCI-FI.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "SyFy",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.5.170:8208",
-  //   "movistar_id": "NONSTP",
-  //   "movistar_nombre": "Non Stop People",
-  //   "movistar_numero": 223,
-  //   "tvh_id": "NONSTP.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "Non Stop People",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.0.211:8208",
-  //   "movistar_id": "MTV",
-  //   "movistar_nombre": "MTV",
-  //   "movistar_numero": 224,
-  //   "tvh_id": "MTV.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "MTV España",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.0.84:8208",
-  //   "movistar_id": "FDFIC",
-  //   "movistar_nombre": "Factoría de Ficción",
-  //   "movistar_numero": 225,
-  //   "tvh_id": "FDFIC.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "Factoría de Ficción",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.0.107:8208",
-  //   "movistar_id": "NEOX",
-  //   "movistar_nombre": "Neox",
-  //   "movistar_numero": 226,
-  //   "tvh_id": "NEOX.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "Neox",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.0.181:8208",
-  //   "movistar_id": "ATRESS",
-  //   "movistar_nombre": "Atreseries",
-  //   "movistar_numero": 227,
-  //   "tvh_id": "ATRESS.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "Atreseries",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.0.59:8208",
-  //   "movistar_id": "ENERGY",
-  //   "movistar_nombre": "Energy",
-  //   "movistar_numero": 228,
-  //   "tvh_id": "ENERGY.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "Energy",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.0.178:8208",
-  //   "movistar_id": "CABECERA_CINE",
-  //   "movistar_nombre": "CINE",
-  //   "movistar_numero": 230,
-  //   "tvh_id": "CABECERA_CINE.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "CINE",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.5.111:8208",
-  //   "movistar_id": "MV1",
-  //   "movistar_nombre": "Movistar Estrenos",
-  //   "movistar_numero": 231,
-  //   "tvh_id": "MV1.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "Movistar Estrenos",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.5.112:8208",
-  //   "movistar_id": "CPXTRA",
-  //   "movistar_nombre": "Movistar Xtra",
-  //   "movistar_numero": 232,
-  //   "tvh_id": "CPXTRA.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "Movistar Xtra",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.5.113:8208",
-  //   "movistar_id": "CPACCI",
-  //   "movistar_nombre": "Movistar Acción",
-  //   "movistar_numero": 233,
-  //   "tvh_id": "CPACCI.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "Movistar Acción",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.5.114:8208",
-  //   "movistar_id": "CPCOME",
-  //   "movistar_nombre": "Movistar Comedia",
-  //   "movistar_numero": 234,
-  //   "tvh_id": "CPCOME.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "Movistar Comedia",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.5.115:8208",
-  //   "movistar_id": "CPCOLE",
-  //   "movistar_nombre": "Movistar DCine",
-  //   "movistar_numero": 235,
-  //   "tvh_id": "CPCOLE.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "Movistar DCine",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.3.45:8208",
-  //   "movistar_id": "DCESP",
-  //   "movistar_nombre": "Movistar Cine Español",
-  //   "movistar_numero": 236,
-  //   "tvh_id": "DCESP.es",
-  //   "tvh_m3u": false,
-  //   "tvh_nombre": "Movistar Cine Español",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.5.89:8208",
-  //   "movistar_id": "TCM",
-  //   "movistar_nombre": "TCM",
-  //   "movistar_numero": 237,
-  //   "tvh_id": "TCM.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "TCM",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.5.76:8208",
-  //   "movistar_id": "HOLLYW",
-  //   "movistar_nombre": "Hollywood",
-  //   "movistar_numero": 238,
-  //   "tvh_id": "HOLLYW.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "Hollywood",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.5.72:8208",
-  //   "movistar_id": "SUNDAN",
-  //   "movistar_nombre": "Sundance",
-  //   "movistar_numero": 239,
-  //   "tvh_id": "SUNDAN.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "Sundance Channel",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.0.39:8208",
-  //   "movistar_id": "DARK",
-  //   "movistar_nombre": "DARK",
-  //   "movistar_numero": 240,
-  //   "tvh_id": "DARK.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "DARK",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.0.91:8208",
-  //   "movistar_id": "13TV",
-  //   "movistar_nombre": "13 TV",
-  //   "movistar_numero": 241,
-  //   "tvh_id": "13TV.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "13 TV",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.0.34:8208",
-  //   "movistar_id": "TEN",
-  //   "movistar_nombre": "TEN",
-  //   "movistar_numero": 242,
-  //   "tvh_id": "TEN.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "TEN",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.0.90:8208",
-  //   "movistar_id": "PARCH",
-  //   "movistar_nombre": "Paramount Channel",
-  //   "movistar_numero": 243,
-  //   "tvh_id": "PARCH.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "Paramount Channel",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.6.14:8208",
-  //   "movistar_id": "CPFUT",
-  //   "movistar_nombre": "Movistar Fútbol",
-  //   "movistar_numero": 245,
-  //   "tvh_id": "CPFUT.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "Movistar Fútbol",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.5.84:8208",
-  //   "movistar_id": "CPPART",
-  //   "movistar_nombre": "Movistar Partidazo",
-  //   "movistar_numero": 246,
-  //   "tvh_id": "CPPART.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "Movistar Partidazo",
-  //   "tvh_tag": "SD"
-  // },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.6.8:8208",
+    "movistar_id": "CPFUT",
+    "movistar_nombre": "Movistar Fútbol",
+    "movistar_numero": "245",
+    "tvh_id": "CPFUT.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Movistar Fútbol",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.4.129:8208",
+    "movistar_id": "CPPART",
+    "movistar_nombre": "Movistar Partidazo",
+    "movistar_numero": "246",
+    "tvh_id": "CPPART.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Movistar Partidazo",
+    "tvh_tag": "SD"
+  },
   {
     "movistar_epg": false,
     "movistar_fuente": "239.0.0.46:8208",
@@ -437,226 +334,193 @@ const cadenassd = [
     "tvh_nombre": "Bein LaLiga",
     "tvh_tag": "SD"
   },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.5.179:8208",
-  //   "movistar_id": "BELIG1",
-  //   "movistar_nombre": "Bein LaLiga 1",
-  //   "movistar_numero": 248,
-  //   "tvh_id": "BELIG1.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "Bein LaLiga 1",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.5.180:8208",
-  //   "movistar_id": "BELIG2",
-  //   "movistar_nombre": "Bein LaLiga 2",
-  //   "movistar_numero": 249,
-  //   "tvh_id": "BELIG2.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "Bein LaLiga 2",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.9.80:8208",
-  //   "movistar_id": "CHUEFA",
-  //   "movistar_nombre": "beIN SPORTS ",
-  //   "movistar_numero": 250,
-  //   "tvh_id": "CHUEFA.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "beIN SPORTS",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.9.81:8208",
-  //   "movistar_id": "BEMAX1",
-  //   "movistar_nombre": "Bein Max1",
-  //   "movistar_numero": 250,
-  //   "tvh_id": "BEMAX1.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "Bein Max1",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.3.102:8208",
-  //   "movistar_id": "BEMAX2",
-  //   "movistar_nombre": "Bein Max2",
-  //   "movistar_numero": 252,
-  //   "tvh_id": "BEMAX2.es",
-  //   "tvh_m3u": false,
-  //   "tvh_nombre": "Bein Max2",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.0.179:8208",
-  //   "movistar_id": "REALM",
-  //   "movistar_nombre": "Real Madrid TV",
-  //   "movistar_numero": 253,
-  //   "tvh_id": "REALM.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "Real Madrid TV",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.3.65:8208",
-  //   "movistar_id": "BARNA",
-  //   "movistar_nombre": "Barça TV",
-  //   "movistar_numero": 254,
-  //   "tvh_id": "BARNA.es",
-  //   "tvh_m3u": false,
-  //   "tvh_nombre": "Barça TV",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.5.248:8208",
-  //   "movistar_id": "CPDEP",
-  //   "movistar_nombre": "Movistar Deportes 1",
-  //   "movistar_numero": 255,
-  //   "tvh_id": "CPDEP.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "Movistar Deportes 1",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.5.245:8208",
-  //   "movistar_id": "CPD2",
-  //   "movistar_nombre": "Movistar Deportes 2",
-  //   "movistar_numero": 256,
-  //   "tvh_id": "CPD2.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "Movistar Deportes 2",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.5.246:8208",
-  //   "movistar_id": "MVF1",
-  //   "movistar_nombre": "Movistar Fórmula 1",
-  //   "movistar_numero": 257,
-  //   "tvh_id": "MVF1.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "Movistar Fórmula 1",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.5.107:8208",
-  //   "movistar_id": "MVMTGP",
-  //   "movistar_nombre": "Movistar Moto GP",
-  //   "movistar_numero": 258,
-  //   "tvh_id": "MVMTGP.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "Movistar Moto GP",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.5.249:8208",
-  //   "movistar_id": "GOLF%2B",
-  //   "movistar_nombre": "Movistar Golf",
-  //   "movistar_numero": 259,
-  //   "tvh_id": "GOLF.TV.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "Movistar Golf",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.9.135:8208",
-  //   "movistar_id": "ESP",
-  //   "movistar_nombre": "Eurosport 1",
-  //   "movistar_numero": 260,
-  //   "tvh_id": "ESP.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "Eurosport 1",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.5.105:8208",
-  //   "movistar_id": "ESP2",
-  //   "movistar_nombre": "Eurosport 2",
-  //   "movistar_numero": 261,
-  //   "tvh_id": "ESP2.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "Eurosport 2",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.5.189:8208",
-  //   "movistar_id": "GOLHD",
-  //   "movistar_nombre": "GOL",
-  //   "movistar_numero": 262,
-  //   "tvh_id": "GOLHD.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "GOL",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.0.188:8208",
-  //   "movistar_id": "TDEP",
-  //   "movistar_nombre": "Teledeporte",
-  //   "movistar_numero": 263,
-  //   "tvh_id": "TDEP.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "Teledeporte",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.0.97:8208",
-  //   "movistar_id": "FUTREP",
-  //   "movistar_nombre": "Canal Fútbol Replay",
-  //   "movistar_numero": 264,
-  //   "tvh_id": "FUTREP.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "Canal Fútbol Replay",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.6.54:8208",
-  //   "movistar_id": "CAZPES",
-  //   "movistar_nombre": "Caza y Pesca",
-  //   "movistar_numero": 265,
-  //   "tvh_id": "CAZPES.es",
-  //   "tvh_m3u": false,
-  //   "tvh_nombre": "Caza y Pesca",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.5.188:8208",
-  //   "movistar_id": "IBERAL",
-  //   "movistar_nombre": "Iberalia TV",
-  //   "movistar_numero": 266,
-  //   "tvh_id": "IBERAL.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "Iberalia TV",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.0.191:8208",
-  //   "movistar_id": "CFERIA",
-  //   "movistar_nombre": "Toros TV",
-  //   "movistar_numero": 267,
-  //   "tvh_id": "CFERIA.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "Toros TV",
-  //   "tvh_tag": "SD"
-  // },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.0.47:8208",
+    "movistar_id": "BELIG1",
+    "movistar_nombre": "Bein LaLiga 1",
+    "movistar_numero": "248",
+    "tvh_id": "BELIG1.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Bein LaLiga 1",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.0.67:8208",
+    "movistar_id": "BELIG2",
+    "movistar_nombre": "Bein LaLiga 2",
+    "movistar_numero": "249",
+    "tvh_id": "BELIG2.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Bein LaLiga 2",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.3.100:8208",
+    "movistar_id": "CHUEFA",
+    "movistar_nombre": "beIN SPORTS ",
+    "movistar_numero": "250",
+    "tvh_id": "CHUEFA.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "beIN SPORTS",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.3.101:8208",
+    "movistar_id": "BEMAX1",
+    "movistar_nombre": "Bein Max1",
+    "movistar_numero": "251",
+    "tvh_id": "BEMAX1.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Bein Max1",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.0.83:8208",
+    "movistar_id": "REALM",
+    "movistar_nombre": "Real Madrid TV",
+    "movistar_numero": "253",
+    "tvh_id": "REALM.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Real Madrid TV",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.4.193:8208",
+    "movistar_id": "CPDEP",
+    "movistar_nombre": "Movistar Deportes 1",
+    "movistar_numero": "255",
+    "tvh_id": "CPDEP.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Movistar Deportes 1",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.5.5:8208",
+    "movistar_id": "CPD2",
+    "movistar_nombre": "Movistar Deportes 2",
+    "movistar_numero": "256",
+    "tvh_id": "CPD2.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Movistar Deportes 2",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.1.246:8208",
+    "movistar_id": "MVF1",
+    "movistar_nombre": "Movistar Fórmula 1",
+    "movistar_numero": "257",
+    "tvh_id": "MVF1.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Movistar Fórmula 1",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.3.38:8208",
+    "movistar_id": "MVMTGP",
+    "movistar_nombre": "Movistar Moto GP",
+    "movistar_numero": "258",
+    "tvh_id": "MVMTGP.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Movistar Moto GP",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.5.2:8208",
+    "movistar_id": "GOLF%2B",
+    "movistar_nombre": "Movistar Golf",
+    "movistar_numero": "259",
+    "tvh_id": "GOLF.TV.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Movistar Golf",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.0.18:8208",
+    "movistar_id": "ESP",
+    "movistar_nombre": "Eurosport 1",
+    "movistar_numero": "260",
+    "tvh_id": "ESP.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Eurosport 1",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.0.37:8208",
+    "movistar_id": "ESP2",
+    "movistar_nombre": "Eurosport 2",
+    "movistar_numero": "261",
+    "tvh_id": "ESP2.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Eurosport 2",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.0.7:8208",
+    "movistar_id": "GOLHD",
+    "movistar_nombre": "GOL",
+    "movistar_numero": "262",
+    "tvh_id": "GOLHD.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "GOL",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.0.79:8208",
+    "movistar_id": "TDEP",
+    "movistar_nombre": "Teledeporte",
+    "movistar_numero": "263",
+    "tvh_id": "TDEP.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Teledeporte",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.6.54:8208",
+    "movistar_id": "CAZPES",
+    "movistar_nombre": "Caza y Pesca",
+    "movistar_numero": "265",
+    "tvh_id": "CAZPES.es",
+    "tvh_m3u": false,
+    "tvh_nombre": "Caza y Pesca",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.5.188:8208",
+    "movistar_id": "IBERAL",
+    "movistar_nombre": "Iberalia TV",
+    "movistar_numero": "266",
+    "tvh_id": "IBERAL.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Iberalia TV",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.1.140:8208",
+    "movistar_id": "CFERIA",
+    "movistar_nombre": "Toros TV",
+    "movistar_numero": "267",
+    "tvh_id": "CFERIA.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Toros TV",
+    "tvh_tag": "SD"
+  },
   // {
   //   "movistar_epg": false,
   //   "movistar_fuente": "239.0.7.1:8208",
@@ -668,61 +532,51 @@ const cadenassd = [
   //   "tvh_nombre": "Multideporte 1",
   //   "tvh_tag": "SD"
   // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.5.78:8208",
-  //   "movistar_id": "NATGEO",
-  //   "movistar_nombre": "National Geographic",
-  //   "movistar_numero": 270,
-  //   "tvh_id": "NATGEO.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "National Geographic",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.9.136:8208",
-  //   "movistar_id": "NATGW",
-  //   "movistar_nombre": "Nat Geo Wild",
-  //   "movistar_numero": 271,
-  //   "tvh_id": "NATGW.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "Nat Geo Wild",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.0.19:8208",
-  //   "movistar_id": "HIST",
-  //   "movistar_nombre": "Historia",
-  //   "movistar_numero": 272,
-  //   "tvh_id": "HIST.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "Historia",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.5.77:8208",
-  //   "movistar_id": "DCR",
-  //   "movistar_nombre": "Discovery",
-  //   "movistar_numero": 273,
-  //   "tvh_id": "DCR.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "Discovery Channel",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.5.82:8208",
-  //   "movistar_id": "ODISEA",
-  //   "movistar_nombre": "Odisea",
-  //   "movistar_numero": 274,
-  //   "tvh_id": "ODISEA.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "Odisea",
-  //   "tvh_tag": "SD"
-  // },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.0.103:8208",
+    "movistar_id": "NATGEO",
+    "movistar_nombre": "National Geographic",
+    "movistar_numero": "270",
+    "tvh_id": "NATGEO.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "National Geographic",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.0.89:8208",
+    "movistar_id": "NATGW",
+    "movistar_nombre": "Nat Geo Wild",
+    "movistar_numero": "271",
+    "tvh_id": "NATGW.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Nat Geo Wild",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.0.21:8208",
+    "movistar_id": "DCR",
+    "movistar_nombre": "Discovery",
+    "movistar_numero": 273,
+    "tvh_id": "DCR.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Discovery Channel",
+    "tvh_tag": "SD"
+  },
+  {
+    "movistar_epg": false,
+    "movistar_fuente": "239.0.0.22:8208",
+    "movistar_id": "ODISEA",
+    "movistar_nombre": "Odisea",
+    "movistar_numero": 274,
+    "tvh_id": "ODISEA.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Odisea",
+    "tvh_tag": "SD"
+  },
+// Revisado hasta aqui
   // {
   //   "movistar_epg": false,
   //   "movistar_fuente": "239.0.0.38:8208",
@@ -1018,28 +872,6 @@ const cadenassd = [
   //   "tvh_id": "CLASSI.es",
   //   "tvh_m3u": false,
   //   "tvh_nombre": "Classica",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.5.3:8208",
-  //   "movistar_id": "PBOY",
-  //   "movistar_nombre": "Playboy TV",
-  //   "movistar_numero": 311,
-  //   "tvh_id": "PBOY.es",
-  //   "tvh_m3u": false,
-  //   "tvh_nombre": "Playboy TV",
-  //   "tvh_tag": "SD"
-  // },
-  // {
-  //   "movistar_epg": false,
-  //   "movistar_fuente": "239.0.0.78:8208",
-  //   "movistar_id": "24H",
-  //   "movistar_nombre": "24 Horas",
-  //   "movistar_numero": 312,
-  //   "tvh_id": "24H.es",
-  //   "tvh_m3u": true,
-  //   "tvh_nombre": "24 Horas",
   //   "tvh_tag": "SD"
   // },
   // {
