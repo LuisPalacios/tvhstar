@@ -47,7 +47,7 @@ let progPreferences = {
   // M3U: 
   // 
   // Nombre del fichero de salida donde dejaré la lista de canales IPTV
-  ficheroM3U: './tv.m3u',
+  ficheroM3U: '/tmp/tv.m3u',
   // Canales extra SD que pretendo añadir para cuando quiera verlos desde
   // un dispositivo portatil vía wifi, al consumer mucho menos ancho de 
   // banda irán mejor.
