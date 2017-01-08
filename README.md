@@ -156,6 +156,7 @@ La forma en la que me bajo el fichero para poder usarlo con un editor es la sigu
 que uso el programa [html2text.py](https://github.com/aaronsw/html2text)
     
       $ curl -o adslzone.html http://www.adslzone.net/postt350532.html
+      
       $ html2text.py salida.html | grep -E '(EXTINF|rtp)' > adslzone.m3u
 
 - Usar el servicio SD&S (Service Discovery & Selection) de Movistar TV para recoger la información
