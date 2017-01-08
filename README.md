@@ -1,7 +1,7 @@
 ## Introducción
 
 Descarga periódica de la programación (EPG) de Movistar TV a un fichero XMLTV (guia.xml) para que
-pueda ser consumo por Tvheadend. Está vinculado al apunte [Tvheadend y Movistar TV (2016)](http://www.luispa.com/archivos/4571),
+pueda ser consumido por Tvheadend. Está vinculado al apunte [Tvheadend y Movistar TV (2016)](http://www.luispa.com/archivos/4571),
 tenlo en cuenta para entender el contexto y nombres de directorios utilizados.
 
 Movistar TV tiene una página desde la cual se puede [Exportar la Programación](http://comunicacion.movistarplus.es/guiaProgramacion/exportarProgramacion),
