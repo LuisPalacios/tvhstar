@@ -155,10 +155,11 @@ Dejo aquí un par de formas de donde sacar los canales actualizados. Yo utilizo 
 La forma en la que me bajo el fichero para poder usarlo con un editor es la siguiente, nota
 que uso el programa [html2text.py](https://github.com/aaronsw/html2text)
     
-      $ curl -o adslzone.html http://www.adslzone.net/postt350532.html
+      `$ curl -o adslzone.html http://www.adslzone.net/postt350532.html`
       
-      $ html2text.py salida.html | grep -E '(EXTINF|rtp)' > adslzone.m3u
-
+      `$ html2text.py salida.html | grep -E '(EXTINF|rtp)' > adslzone.m3u`
+      
+      
 - Usar el servicio SD&S (Service Discovery & Selection) de Movistar TV para recoger la información
   de canales. Aquí tenéis el [movistartv2xmltv](https://github.com/ese/movistartv2xmltv) que 
   creo que ya no funciona, pero puede ser buena base para que alguien haga una actualización :-)
