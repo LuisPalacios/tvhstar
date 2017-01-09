@@ -315,14 +315,14 @@ const cadenassd = [
   },
   {
     "movistar_epg": false,
-    "movistar_fuente": "239.0.0.181:8208",
+    "movistar_fuente": "239.0.3.29:8208",
     "movistar_id": "ATRESS",
     "movistar_nombre": "Atreseries",
     "movistar_numero": "27",
     "tvh_id": "ATRESS.es",
     "tvh_m3u": true,
     "tvh_nombre": "Atreseries HD",
-    "tvh_tag": "HD|TV"
+    "tvh_tag": "SD|Wifi"
   },
   {
     "movistar_epg": false,
@@ -344,7 +344,7 @@ const cadenassd = [
     "tvh_id": "CABECERA_CINE.es",
     "tvh_m3u": true,
     "tvh_nombre": "CABECERA CINE",
-    "tvh_tag": "SD|TV"
+    "tvh_tag": "SD|Wifi"
   },
   {
     "movistar_epg": false,
