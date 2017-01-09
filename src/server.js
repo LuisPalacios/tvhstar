@@ -130,7 +130,7 @@ let progPreferences = {
   isConversionRunning: false,
 
   // Modo desarrollador (asume que ya se ha descargado el EPG),
-  developerMode: true, // Cambiar a 'false' en producción.
+  developerMode: false, // Cambiar a 'false' en producción.
 
 }
 
