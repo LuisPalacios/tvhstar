@@ -529,7 +529,7 @@ const cadenas = [
     "tvh_id": "CABECERA_DEPORTES.es",
     "tvh_m3u": true,
     "tvh_nombre": "CABECERA DEPORTES HD",
-    "tvh_tag": "HD|Wifi"
+    "tvh_tag": "HD|TV"
   },
   {
     "movistar_epg": true,
