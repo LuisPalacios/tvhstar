@@ -712,7 +712,7 @@ const cadenasREMOTE = [
     "movistar_nombre": "Caza y Pesca",
     "movistar_numero": "65",
     "tvh_id": "CAZPES.es",
-    "tvh_m3u": true,
+    "tvh_m3u": false,
     "tvh_nombre": "Caza y Pesca",
     "tvh_tag": "SD|REMOTE"
   },
@@ -723,7 +723,7 @@ const cadenasREMOTE = [
     "movistar_nombre": "Iberalia TV",
     "movistar_numero": "66",
     "tvh_id": "IBERAL.es",
-    "tvh_m3u": true,
+    "tvh_m3u": false,
     "tvh_nombre": "Iberalia TV",
     "tvh_tag": "SD|REMOTE"
   },
@@ -1075,7 +1075,7 @@ const cadenasREMOTE = [
     "movistar_nombre": "Classica HD",
     "movistar_numero": "109",
     "tvh_id": "CLASSI.es",
-    "tvh_m3u": true,
+    "tvh_m3u": false,
     "tvh_nombre": "Classica",
     "tvh_tag": "SD|REMOTE"
   },
@@ -1240,7 +1240,7 @@ const cadenasREMOTE = [
     "movistar_nombre": "Telefe Internacional",
     "movistar_numero": "134",
     "tvh_id": "TELEFE.es",
-    "tvh_m3u": true,
+    "tvh_m3u": false,
     "tvh_nombre": "Telefe Internacional",
     "tvh_tag": "SD|TV"
   },
@@ -1251,7 +1251,7 @@ const cadenasREMOTE = [
     "movistar_nombre": "Canal de las Estrellas",
     "movistar_numero": "135",
     "tvh_id": "GALAV.es",
-    "tvh_m3u": true,
+    "tvh_m3u": false,
     "tvh_nombre": "Canal de las Estrellas",
     "tvh_tag": "SD|TV"
   },
@@ -1262,7 +1262,7 @@ const cadenasREMOTE = [
     "movistar_nombre": "Caracol TV",
     "movistar_numero": "136",
     "tvh_id": "CARACO.es",
-    "tvh_m3u": true,
+    "tvh_m3u": false,
     "tvh_nombre": "Caracol TV",
     "tvh_tag": "SD|TV"
   },
@@ -1273,7 +1273,7 @@ const cadenasREMOTE = [
     "movistar_nombre": "TV RECORD",
     "movistar_numero": "137",
     "tvh_id": "TVREC.es",
-    "tvh_m3u": true,
+    "tvh_m3u": false,
     "tvh_nombre": "TV Record",
     "tvh_tag": "SD|TV"
   },
@@ -1284,7 +1284,7 @@ const cadenasREMOTE = [
     "movistar_nombre": "TV Chile",
     "movistar_numero": "138",
     "tvh_id": "CHILE.es",
-    "tvh_m3u": true,
+    "tvh_m3u": false,
     "tvh_nombre": "TV Chile",
     "tvh_tag": "SD|TV"
   },
@@ -1295,7 +1295,7 @@ const cadenasREMOTE = [
     "movistar_nombre": "TV Colombia",
     "movistar_numero": "139",
     "tvh_id": "COLOMB.es",
-    "tvh_m3u": true,
+    "tvh_m3u": false,
     "tvh_nombre": "TV Colombia",
     "tvh_tag": "SD|TV"
   },
@@ -1306,7 +1306,7 @@ const cadenasREMOTE = [
     "movistar_nombre": "AZ Mundo",
     "movistar_numero": "140",
     "tvh_id": "AZMUND.es",
-    "tvh_m3u": true,
+    "tvh_m3u": false,
     "tvh_nombre": "AZ Mundo",
     "tvh_tag": "SD|TV"
   },
@@ -1317,7 +1317,7 @@ const cadenasREMOTE = [
     "movistar_nombre": "Cubavisión",
     "movistar_numero": "141",
     "tvh_id": "CUBAV.es",
-    "tvh_m3u": true,
+    "tvh_m3u": false,
     "tvh_nombre": "Cubavisión",
     "tvh_tag": "SD|TV"
   },
@@ -1328,7 +1328,7 @@ const cadenasREMOTE = [
     "movistar_nombre": "Telesur",
     "movistar_numero": "142",
     "tvh_id": "TLESUR.es",
-    "tvh_m3u": true,
+    "tvh_m3u": false,
     "tvh_nombre": "Telesur",
     "tvh_tag": "SD|TV"
   },
@@ -1339,7 +1339,7 @@ const cadenasREMOTE = [
     "movistar_nombre": "Canal Sur Andalucía",
     "movistar_numero": "150",
     "tvh_id": "ANTV.es",
-    "tvh_m3u": true,
+    "tvh_m3u": false,
     "tvh_nombre": "Canal Sur Andalucía",
     "tvh_tag": "SD|TV"
   },
@@ -1350,7 +1350,7 @@ const cadenasREMOTE = [
     "movistar_nombre": "TV Galicia",
     "movistar_numero": "151",
     "tvh_id": "TVG.es",
-    "tvh_m3u": true,
+    "tvh_m3u": false,
     "tvh_nombre": "TV Galicia",
     "tvh_tag": "SD|REMOTE"
   },
@@ -1361,7 +1361,7 @@ const cadenasREMOTE = [
     "movistar_nombre": "TV3 Cat",
     "movistar_numero": "153",
     "tvh_id": "TVC.es",
-    "tvh_m3u": true,
+    "tvh_m3u": false,
     "tvh_nombre": "TV3 Cat",
     "tvh_tag": "SD|REMOTE"
   },
@@ -1372,7 +1372,7 @@ const cadenasREMOTE = [
     "movistar_nombre": "ETB Sat",
     "movistar_numero": "154",
     "tvh_id": "ETB.es",
-    "tvh_m3u": true,
+    "tvh_m3u": false,
     "tvh_nombre": "ETB Sat",
     "tvh_tag": "SD|REMOTE"
   },
@@ -1383,7 +1383,7 @@ const cadenasREMOTE = [
     "movistar_nombre": "Aragón TV Int",
     "movistar_numero": "155",
     "tvh_id": "ARAGON.es",
-    "tvh_m3u": true,
+    "tvh_m3u": false,
     "tvh_nombre": "Aragón TV Int",
     "tvh_tag": "SD|TV"
   }
