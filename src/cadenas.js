@@ -433,13 +433,13 @@ const cadenas = [
     "tvh_tag": "HD|TV"
   },
   {
-    "movistar_epg": false,
+    "movistar_epg": true,
     "movistar_fuente": "239.0.3.45:8208",
     "movistar_id": "DCESP",
     "movistar_nombre": "Movistar Cine Español",
     "movistar_numero": "36",
     "tvh_id": "DCESP.es",
-    "tvh_m3u": false,
+    "tvh_m3u": true,
     "tvh_nombre": "Movistar Cine Español HD",
     "tvh_tag": "HD|TV"
   },
@@ -609,7 +609,7 @@ const cadenas = [
     "tvh_tag": "HD|TV"
   },
   {
-    "movistar_epg": false,
+    "movistar_epg": true,
     "movistar_fuente": "239.0.3.102:8208",
     "movistar_id": "BEMAX2",
     "movistar_nombre": "Bein Max2",
@@ -631,13 +631,13 @@ const cadenas = [
     "tvh_tag": "HD|TV"
   },
   {
-    "movistar_epg": false,
+    "movistar_epg": true,
     "movistar_fuente": "239.0.3.65:8208",
     "movistar_id": "BARNA",
     "movistar_nombre": "Barça TV",
     "movistar_numero": "54",
     "tvh_id": "BARNA.es",
-    "tvh_m3u": false,
+    "tvh_m3u": true,
     "tvh_nombre": "Barça TV",
     "tvh_tag": "HD|TV"
   },
@@ -752,13 +752,13 @@ const cadenas = [
     "tvh_tag": "SD|TV"
   },
   {
-    "movistar_epg": false,
+    "movistar_epg": true,
     "movistar_fuente": "239.0.6.54:8208",
     "movistar_id": "CAZPES",
     "movistar_nombre": "Caza y Pesca",
     "movistar_numero": "65",
     "tvh_id": "CAZPES.es",
-    "tvh_m3u": false,
+    "tvh_m3u": true,
     "tvh_nombre": "Caza y Pesca HD",
     "tvh_tag": "HD|TV"
   },
@@ -1115,24 +1115,24 @@ const cadenas = [
     "tvh_tag": "SD|TV"
   },
   {
-    "movistar_epg": false,
+    "movistar_epg": true,
     "movistar_fuente": "239.0.4.65:8208",
     "movistar_id": "MEZZO",
     "movistar_nombre": "Mezzo",
     "movistar_numero": "107",
     "tvh_id": "MEZZO.es",
-    "tvh_m3u": false,
+    "tvh_m3u": true,
     "tvh_nombre": "Mezzo HD",
     "tvh_tag": "HD|TV"
   },
   {
-    "movistar_epg": false,
+    "movistar_epg": true,
     "movistar_fuente": "39.0.9.137:8208",
     "movistar_id": "CLASSI",
     "movistar_nombre": "Classica HD",
     "movistar_numero": "109",
     "tvh_id": "CLASSI.es",
-    "tvh_m3u": false,
+    "tvh_m3u": true,
     "tvh_nombre": "Classica HD",
     "tvh_tag": "HD|TV"
   },
@@ -1302,36 +1302,157 @@ const cadenas = [
     "tvh_tag": "SD|TV"
   },
   {
-    "movistar_epg": false,
+    "movistar_epg": true,
+    "movistar_fuente": "239.0.8.3:8208",
+    "movistar_id": "TELEFE",
+    "movistar_nombre": "Telefe Internacional",
+    "movistar_numero": "134",
+    "tvh_id": "TELEFE.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Telefe Internacional",
+    "tvh_tag": "SD|TV"
+  },
+  {
+    "movistar_epg": true,
+    "movistar_fuente": "239.0.8.193:8208",
+    "movistar_id": "GALAV",
+    "movistar_nombre": "Canal de las Estrellas",
+    "movistar_numero": "135",
+    "tvh_id": "GALAV.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Canal de las Estrellas",
+    "tvh_tag": "SD|TV"
+  },
+  {
+    "movistar_epg": true,
+    "movistar_fuente": "239.0.7.129:8208",
+    "movistar_id": "CARACO",
+    "movistar_nombre": "Caracol TV",
+    "movistar_numero": "136",
+    "tvh_id": "CARACO.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Caracol TV",
+    "tvh_tag": "SD|TV"
+  },
+  {
+    "movistar_epg": true,
+    "movistar_fuente": "239.0.8.2:8208",
+    "movistar_id": "TVREC",
+    "movistar_nombre": "TV RECORD",
+    "movistar_numero": "137",
+    "tvh_id": "TVREC.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "TV Record",
+    "tvh_tag": "SD|TV"
+  },
+  {
+    "movistar_epg": true,
+    "movistar_fuente": "239.0.8.1:8208",
+    "movistar_id": "CHILE",
+    "movistar_nombre": "TV Chile",
+    "movistar_numero": "138",
+    "tvh_id": "CHILE.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "TV Chile",
+    "tvh_tag": "SD|TV"
+  },
+  {
+    "movistar_epg": true,
+    "movistar_fuente": "239.0.7.131:8208",
+    "movistar_id": "COLOMB",
+    "movistar_nombre": "TV Colombia",
+    "movistar_numero": "139",
+    "tvh_id": "COLOMB.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "TV Colombia",
+    "tvh_tag": "SD|TV"
+  },
+  {
+    "movistar_epg": true,
+    "movistar_fuente": "239.0.8.68:8208",
+    "movistar_id": "AZMUND",
+    "movistar_nombre": "AZ Mundo",
+    "movistar_numero": "140",
+    "tvh_id": "AZMUND.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "AZ Mundo",
+    "tvh_tag": "SD|TV"
+  },
+  {
+    "movistar_epg": true,
+    "movistar_fuente": "239.0.8.67:8208",
+    "movistar_id": "CUBAV",
+    "movistar_nombre": "Cubavisión",
+    "movistar_numero": "141",
+    "tvh_id": "CUBAV.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Cubavisión",
+    "tvh_tag": "SD|TV"
+  },
+  {
+    "movistar_epg": true,
+    "movistar_fuente": "239.0.8.69:8208",
+    "movistar_id": "TLESUR",
+    "movistar_nombre": "Telesur",
+    "movistar_numero": "142",
+    "tvh_id": "TLESUR.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Telesur",
+    "tvh_tag": "SD|TV"
+  },
+  {
+    "movistar_epg": true,
+    "movistar_fuente": "239.0.0.1:8208",
+    "movistar_id": "ANTV",
+    "movistar_nombre": "Canal Sur Andalucía",
+    "movistar_numero": "150",
+    "tvh_id": "ANTV.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Canal Sur Andalucía",
+    "tvh_tag": "SD|TV"
+  },
+  {
+    "movistar_epg": true,
     "movistar_fuente": "239.0.3.37:8208",
     "movistar_id": "TVG",
     "movistar_nombre": "TV Galicia",
     "movistar_numero": "151",
     "tvh_id": "TVG.es",
-    "tvh_m3u": false,
+    "tvh_m3u": true,
     "tvh_nombre": "TV Galicia",
     "tvh_tag": "SD|TV"
   },
   {
-    "movistar_epg": false,
+    "movistar_epg": true,
     "movistar_fuente": "239.0.3.36:8208",
     "movistar_id": "TVC",
     "movistar_nombre": "TV3 Cat",
     "movistar_numero": "153",
     "tvh_id": "TVC.es",
-    "tvh_m3u": false,
+    "tvh_m3u": true,
     "tvh_nombre": "TV3 Cat",
     "tvh_tag": "SD|TV"
   },
   {
-    "movistar_epg": false,
+    "movistar_epg": true,
     "movistar_fuente": "239.0.0.60:8208",
     "movistar_id": "ETB",
     "movistar_nombre": "ETB Sat",
     "movistar_numero": "154",
     "tvh_id": "ETB.es",
-    "tvh_m3u": false,
+    "tvh_m3u": true,
     "tvh_nombre": "ETB Sat",
+    "tvh_tag": "SD|TV"
+  },
+  {
+    "movistar_epg": true,
+    "movistar_fuente": "239.0.0.81:8208",
+    "movistar_id": "ARAGON",
+    "movistar_nombre": "Aragón TV Int",
+    "movistar_numero": "155",
+    "tvh_id": "ARAGON.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Aragón TV Int",
     "tvh_tag": "SD|TV"
   }
 ];
