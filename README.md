@@ -77,7 +77,7 @@ Antes de hacer el build deberías revisar y modificar los ficheros
 `server.js`: Revisa los parametros bajo "progPreferences", los más importantes son los siguientes
 y su significado está descrito en el propio fuente.
 
-    ficheroXMLTV: Directorio donde se dejará el fichero XMLTV final (guia.xml). 
+    ficheroXMLTV: Path al fichero donde se dejará el fichero XMLTV final (guia.xml). 
     uri_prefix: URI a poner como prefijo a los canales. 
     
 `cadenasHOME|REMOTE.js`: en estos ficheros mantengo la lista de los

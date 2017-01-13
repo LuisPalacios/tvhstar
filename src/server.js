@@ -79,7 +79,7 @@ let progPreferences = {
   ficheroJSONTV: '/tmp/guia.movistar-xmltv.json',
   //
   // Fichero final:
-  ficheroXMLTV: '/Users/luis/guia/guia.xml',
+  ficheroXMLTV: '/home/luis/guia/guia.xml',
 
   // 
   // El programa ejecutará una descarga del EPG nada más arrancar y se quedará 
