@@ -204,10 +204,8 @@ function sessionController() {
   // 
   // Sobreescribo con los dinámicos
   progPreferences.cadenas_sd_din.map(cadena_sd_din => {
-    let index = progPreferences.cadenas_sd.findIndex(item => item.movistar_numero === cadena_sd_din.movistar_numero);
+    let index = progPreferences.cadenas_sd.findIndex(item => item.tvh_nombre === cadena_sd_din.tvh_nombre);
     if ( index !== -1 ) {
-      progPreferences.cadenas_sd[index].tvh_nombre = cadena_sd_din.tvh_nombre;
-      progPreferences.cadenas_sd[index].tvh_tag = cadena_sd_din.tvh_tag;
       progPreferences.cadenas_sd[index].tvh_fuente = cadena_sd_din.tvh_fuente;
     }
   });
