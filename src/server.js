@@ -169,10 +169,8 @@ function sessionController() {
   // 
   // Sobreescribo con los dinámicos
   progPreferences.cadenas_din.map(cadena_din => {
-    let index = progPreferences.cadenas.findIndex(item => item.movistar_numero === cadena_din.movistar_numero);
+    let index = progPreferences.cadenas.findIndex(item => item.tvh_nombre === cadena_din.tvh_nombre);
     if ( index !== -1 ) {
-      progPreferences.cadenas[index].tvh_nombre = cadena_din.tvh_nombre;
-      progPreferences.cadenas[index].tvh_tag = cadena_din.tvh_tag;
       progPreferences.cadenas[index].tvh_fuente = cadena_din.tvh_fuente;
     }
   });
@@ -252,13 +250,13 @@ function sessionController() {
     console.log(`  => EPG ${progPreferences.diasInicioFin.fechaInicio} -> ${progPreferences.diasInicioFin.fechaFin}`);
     Movistar.requestEPG(progPreferences)
       .then((response) => {
-        console.log(`  => Escribiendo los datos en el fichero ${progPreferences.ficheroXML}`);
+        console.log(`  => Salvando los datos en el fichero ${progPreferences.ficheroXML}`);
         fs.writeFile(progPreferences.ficheroXML, response.body, function(error){
           if (error) {
             console.log(`  => Error escribiendo en el fichero`);
             reject(error);
           } else {
-            console.log(`  => Se ha salvado el fichero correctamente`);
+            console.log(`  => El fichero se ha salvado correctamente`);
             conversionCompletaDeEPGaXMLTV();      
           }
         });

@@ -54,11 +54,11 @@ const movistar = {
     }
 
     // Realizamos la petición
-    console.log(`  => Se solicitará el EPG para ${options.form.cadena.length} canales`)
+    console.log(`  => Se solicita el EPG para ${options.form.cadena.length} canales`)
     return new Promise((resolve, reject) => {
       rp(options)
         .then((response) => {
-          console.log(`  => OK, se recibieron datos`);
+          console.log(`  => OK, se ha recibido el EPG correctamente`);
           resolve(response);
         })
         .catch((err) => {
