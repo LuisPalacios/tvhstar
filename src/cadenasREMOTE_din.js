@@ -1,7 +1,7 @@
 //
 // LuisPa 2017/01/06
 //
-// SOLO SE UTILIZA PARA LA GENERACIÓN DEL FICHERO M3U
+// Este fichero solo se utiliza para la generación del M3U, no para EPG. 
 //
 // Va a sobreescribir algunos parámetros del mismo canal que
 // ya se haya leido en cadenas.js o cadenas_sd.js.
@@ -16,13 +16,11 @@
 
 // Cadenas de TV
 
-const cadenas_sd_din = [
-//   {
-//     "movistar_numero": "8",
-//     "tvh_nombre": "Telemadrid HD",
-//     "tvh_tag": "HD",
-//     "tvh_fuente": "http://mi.servidor.home:1234"
-//   }
+const cadenasREMOTE_din = [
+  // {
+  //   "tvh_nombre": "Telemadrid",
+  //   "tvh_fuente": "http://mi.hdhomerun.com:1234"
+  // }
 ];
 
-export default cadenas_sd_din;
+export default cadenasREMOTE_din;

@@ -1,41 +1,55 @@
 ## Introducción
 
-Descarga periódica de la programación (EPG) de Movistar TV a un fichero XMLTV (guia.xml) para que
-pueda ser consumido por Tvheadend. Está vinculado al apunte [Tvheadend y Movistar TV (2016)](http://www.luispa.com/archivos/4571),
+Este proyecto realiza varias funciones:
+
+- Descarga periódica de la programación de TV (EPG) desde la web de Movistar
+- Creación de los ficheros tvHOME.m3u y tvREMOTE.m3u para ser consumidos por Tvheadend como fuentes para redes IPTV dinámicas
+- Logos de los programas de TV en formato 800x400 para ser consumidos por Tvheadend y sus clientes.
+
+### Descarga del EPG
+
+Una vez descargado el EPG se convierte a fichero XMLTV (guia.xml) para que pueda ser 
+consumido por Tvheadend. Está vinculado al apunte [Tvheadend y Movistar TV (2016)](http://www.luispa.com/archivos/4571),
 tenlo en cuenta para entender el contexto y nombres de directorios utilizados.
 
 Movistar TV tiene una página desde la cual se puede [Exportar la Programación](http://comunicacion.movistarplus.es/guiaProgramacion/exportarProgramacion),
 puedes seleccionar qué cadenas y formato (xml, csv, excel, texto) prefieres. El formato XML es propietario
-y no vale para Tvheadend. 
+y no vale para Tvheadend. `tvhstar` descarga automáticamente la programación (una vez al día) utilizando
+una petición web de tipo POST parametrizado y convierte lo que recibe (XML movistar) a 
+XMLTV (compatible con Tvheadend). 
 
-`tvhstar` descarga automáticamente la programación (una vez al día) utilizando
-una petición web de tipo POST parametrizado y convierte lo que recibe (XML movistar) a XMLTV (compatible con Tvheadend). 
 
-El estado de este proyecto es el siguiente: 
+### Ficheros de configuración
 
-    - El programa ya funciona, 1) descarga el EPG y lo convierte a XMLTV y 2) crea un fichero tv.m3u, ambos compatibles con Tvheadend
-    - El directorio `picons` lo estoy actualizando, subiendo nuevas versiones de los logos con más resolución. 
-    - El fichero donde se configuran los canales principales (`cadenas.js`) solo tiene las versiones HD, agunos tags
-      los tengo que corregir. Además le faltan canales, bien porque no los consumo, no los tengo contratados o 
-      son de otra demarcación. Editalo a tu gusto. 
-    - He añadido un fichero nuevo llamado `cadenas_sd.js` que está todavía verde (me falta añadir muchos canales), está
-      dedicado a poner en el la versión SD de los canales del fichero principal (`cadenas.js`), pero empezando en un 
-      número de canal muy alto (201). El caso de uso son las tablets o móviles por wifi que funcionan 
-      mejor con streams de ~2Mbps (SD) que con los streams de ~10Mbps (HD). 
+- `cadenasHOME.js`: Se utiliza para configurar el EPG y también para crear el fichero
+`tvHOME.m3u` - Aquí configuro todos los canales de TV que quiero tener disponibles en los 
+dispositivos que van por la red casera (LAN/Ethernet), por lo que voy a configurar las 
+versiones HD de lo mismos (excepto aquellos que solo emiten en SD). 
 
-Pendientes: 
+- `cadenasREMOTE.js`: Se utiliza para crear el fichero `tvREMOTE.m3u` - Aquí configura todos
+los canales de TV en su versión SD, de modo que puedan ser consumidos por dispositivos con 
+un ancho de banda inferior, como por ejemplo por la red WiFi casera donde 
+las tablets o móviles funcionarán mucho mejor con streams de ~2Mbps (SD) que con los 
+streams de ~10Mbps (HD).
 
-    - Conseguir que se interprete "tvh_tag" cuando Tvheadend lee el fichero `tv.m3u`
-    - Terminar `canales.js`, corregir canales marcados con `HD` que en realidad son `SD`
-    - Terminar `canales_sd.js`, hacer una lista definitiva de los canales equivalentes en `SD`
+
+### Ficheros picons
+
+El directorio `picons` contiene todos los canales que están dados de alta en los ficheros 
+cadenas*.js, con el nombre del fichero en minúsculas, sin espacios, ni caracteres diacríticos, 
+para ser consumidos de forma automática por Tvheadend (siguiendo las instrucciones del 
+apunte [Tvheadend y Movistar TV (2016)](http://www.luispa.com/archivos/4571) antes mencionado). 
 
 
 ## Instalación
 
-Está desarrollado en Javascript y pensado para ejecutarse como daemon en node.js, cuidado que con la versión 
-4.6.x no me ha funcionado, lo he probado con la versión 6.9.x tanto en Mac OS como en Linux y funcionan 
-correctamente. En mi caso lo voy a montar en el mismo linux donde tengo instalado Tvheadend (linux basado en
-Gentoo). Primero tienes que instalar node.js, en mi caso: 
+Este proyecto consta de un programa llamado "server.js" que está desarrollado en 
+Javascript y pensado para ejecutarse "encima" de node.js y dejarlo corriendo como daemon, 
+por defecto se ejecutará una vez al día para bajarse el EPG. Ah!, de momento crea los 
+ficheros /tmp/*.m3u en cada ciclo (innecesario pero inocuo)
+
+Nota: No funciona con node.js 4.6.x, lo he probado con la versión 6.9.x 
+(tanto en Mac OS como en Linux funcionan ). En mi caso uso Gentoo así que instalé con:
 
     ~ # cat /etc/portage/package.accept_keywords
     :
@@ -45,8 +59,8 @@ Gentoo). Primero tienes que instalar node.js, en mi caso:
     
     ~ # emerge -v nodejs
 
-Después preparo el proyecto, librerías. Ejecuto `npm install` que creará el directorio node_modules con
-con todas las dependencias.
+Después preparo el proyecto ejecutando `npm install` que creará el directorio
+node_modules con con todas las dependencias.
 
     ~ $ git clone https://github.com/LuisPalacios/tvhstar.git
     ~ $ cd tvhstar
@@ -64,12 +78,15 @@ equipo donde está Tvheadend parametrizo que deje el fichero ya en su sitio fina
 
     ficheroXMLTV: '/home/luis/guia/guia.xml',
 
-`cadenas.js`: aquí mantengo mi lista de todos los canales de Movistar TV y 
-los parámetros más importantes para vincular el servicio y Tvheadend. Me
-faltan algunos canales que no he configurado por mi demarcación o porque
-no los tengo contratados. Para cada cadena/canal asigno un monto de parámetros, 
-algunos los uso para el fichero m3u (para crear los canales dinámicos
-en tvheadend) y otros para crear el xmltv (para el epg que usará tvheadend)
+`cadenasHOME|REMOTE.js`: en este tipo de fichero es donde mantengo la lista de los
+canales de Movistar TV y sus parámetros para vincular entre sí el servicio y Tvheadend. 
+Quizá eches de menos algunos canales que he omitido o no he activado (opciones
+en false), el motivo es por mi demarcación o porque no los tengo contratados o 
+no los veo, así que revísalos para adaptarlo a tu gusto. 
+
+Para cada cadena/canal asigno un monto de parámetros, 
+algunos los uso para la creación de los ficheros m3u (para crear los canales dinámicos
+en tvheadend) y otros para crear el xmltv (epg que usará tvheadend)
 
     "movistar_epg": true,                      Solicitar esta cadena al recoger el EPG
     "movistar_fuente": "239.0.3.37:8208",      Dirección streaming al crear el m3u para tvheadend
@@ -129,20 +146,27 @@ Instala el servicio
 
 ## M3U
 
-Como "extra" también verás que creo un fichero IPTV (tv.m3u) partiendo de los canales descritos en 
-`cadenas.js`. Por cierto, tienes los canales actualizados a fecha 6/1/2017 así que puedes usarlo
-con tu Tvheadend actual.
+Como decía, un "extra" es que creo el fichero IPTV (`tv[HOME|REMOTE].m3u`) que se puede 
+usar como fuente para una "IPTV Automatic Network" de Tvheadend.
 
-    tvhstar $ sudo cp /tmp/tv.m3u /etc/tvheadend     
+    tvhstar $ sudo cp /tmp/tvHOME.m3u /etc/tvheadend     
+    tvhstar $ sudo cp /tmp/tvREMOTE.m3u /etc/tvheadend     
     
-Recuerda que el directorio de Tvheadend puede ser distinto en tu caso.  
+Creo dos ficheros distintos para poder crear dos "Network" distintas, cada una apuntando
+a uno de los ficheros, de modo que sea luego más fácil mantener Tvheadend. 
+
+Observarás que los canales de tvHOME.m3u llevan el tag "HOME" y los de tvREMOTE llevan 
+el tag "REMOTE". Estos TAG's se importarán en Tvheadend y es una forma muy sencilla de
+asociar a los clientes qué canales queremos enviarles (crear usuarios/passwords y 
+asociales los canales de un Tag concreto). 
+
   
 ## PICONS (2017)
 
 Copio en el directorio `picons` los logos de los canales para poder copiarlos a tvheadend tal como 
 describo en el apunte [Tvheadend y Movistar TV (2016)](http://www.luispa.com/archivos/4571). Los
-logos están actualizados a fecha enero de 2017, pero todavía me faltan unos cuantos que
-estoy consiguiendo desde http://picons.eu (proyecto buenísimo con versiones en alta calidad)
+logos están actualizados a fecha enero de 2017, utilizando como fuente 
+[picons.eu](http://picons.eu) un gran proyecto con logos de muy alta calidad. 
 
 
 ## Información adicional

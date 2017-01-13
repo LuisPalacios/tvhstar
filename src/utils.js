@@ -109,7 +109,7 @@ const utils = {
     });
   },
 
-  // Convierto el JSON desde formato Movistar a un JSON que será válido para convertir a XMLTV. 
+  // Convierto el JSON desde formato Movistar a un JSON que será válido para crear el XMLTV. 
   // 
   // IMPORTANTE: El EPG (xml movistar) original no incluye la HORA DE FINALIZACIÓN de cada
   //             programa, y tvheadend lo necesita o no mostrará el EPG. Debemos hacer el 
@@ -164,21 +164,36 @@ const utils = {
       // Analizar cada pase
       datosJSON.export.pase.forEach(function (pase) {
 
-        // Busco el nombre de la cadena en cadenas[]
+        // Busco el nombre de la cadena en cadenasHOME[]
+        //
+        // NOTA: ESTA VERSIÓ SOLO BUSCA EN cadenasHOME (ignora cadenasREMOTE) a la 
+        // hora de construir de convertir a JSONTV. 
+        //
+        //
         let movistar_nombre = pase["$"].cadena;
-        let index = progPreferences.cadenas.findIndex(item => item.movistar_nombre === movistar_nombre);
+        let index = progPreferences.cadenasHOME.findIndex(item => item.movistar_nombre === movistar_nombre);
 
         if ( index === -1 ) {
           console.log('=============================================')
           console.log('convierteJSONaJSONTV ...')
-          console.log('ATENCIÓN NO HE PODIDO ENCONTRAR EL CANAL: ')
+          console.log('ATENCIÓN NO PUEDO CONVERTIR EL SIGUIENTE CANAL');
+          console.log('PORQUE NO LO TENGO DADO DE ALTA EN cadenasHOME');
           console.log(`movistar_nombre: ${movistar_nombre}`);
           console.log(`index: ${index}`);
           console.log('=============================================')
         } else {
 
-          let channel_id = progPreferences.cadenas[index].tvh_id;
-          let display_name = progPreferences.cadenas[index].tvh_nombre;
+          let channel_id = progPreferences.cadenasHOME[index].tvh_id;
+          let display_name = progPreferences.cadenasHOME[index].tvh_nombre;
+
+          // Busco el mismo programa en cadenasREMOTE, para añadir su display_name como alternativo. 
+          // Este truco facilita el que Tvheadend asigne automáticamente el EPG de cada cadena
+          // al canal durante el proceso de creación de la Red->Muxes->Services->Channels en Tvheadend
+          let indexAlt = progPreferences.cadenasREMOTE.findIndex(item => item.movistar_nombre === movistar_nombre);
+          let display_name_alt = undefined; 
+          if ( indexAlt !== -1 ) {
+            display_name_alt = progPreferences.cadenasREMOTE[indexAlt].tvh_nombre;          
+          }
 
           // A pelo, el lenguaje siempre será 'es'
           let langES = 'es';
@@ -203,7 +218,15 @@ const utils = {
                   }
                 }
               ]
-            };
+            };            
+            if ( display_name_alt!==undefined && display_name !== display_name_alt ) {
+              channel["display-name"].push({
+                "_": display_name_alt,
+                "$": {
+                  "lang": langES
+                }
+              });
+            }
             jsontv.tv.channel.push( channel );
             progPreferences.numChannels = progPreferences.numChannels + 1;
           }

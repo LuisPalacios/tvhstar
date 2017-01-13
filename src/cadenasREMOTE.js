@@ -5,26 +5,22 @@
 //
 // Disclaimer: 
 //
-// - Faltan unos pocos canales que no añado por no utilizarlos. 
-// - Si el nombre del tvh_id coincide al de cadenas_sd.js no se añadirá el EPG automátiamente, 
-//   desde Tvheadend trandrás que usar la opción "Reuse EPG From" 
-//
 // Aquí tenemos la lista de canales en SD que voy a añadir el fichero m3u con las 
-// etiquetas "SD|Wifi". Como podrás observar son todos los canales HD+SD del 
-// fichero canales.js pero solo la versión 'SD' con la fuente Movistar adecuada, 
-// de modo que cuando un cliente Tvheadend seleccione (o se asocie) al TAG Wifi
-// solo recibirá estos canales. 
+// etiquetas "SD|REMOTE". Como podrás observar aquí he puesto las versiones
+// en SD, con la fuente Movistar adecuada, de los canales que tengo en el 
+// fichero cadenasHOME.js de modo que cuando un cliente Tvheadend seleccione
+// (o se asocie) al TAG REMOTE solo recibirá estos canales. 
 //
 // El caso de uso es el de poder separar qué tipo de canales quiero recibir
-// en dispositivo tablets etc vía wifi. 
+// en dispositivo tablet vía Wifi. 
 //
 // Esta forma de trabajar es muy personal, si prefieres utilizar otra técnica
 // juega con ambos ficheros y las etiquetas 'tvh_tag' para adaptarlo a tu gusto. 
 //
-// Cadenas de TV exclusivamente en 'SD', que etiqueto con 'Wifi' para 
+// Cadenas de TV exclusivamente en 'SD', que etiqueto con 'REMOTE' para 
 // poder hacer filtros en Tvheadend. Principalmente orientado a Tablets
 //
-const cadenassd = [
+const cadenasREMOTE = [
   {
     "movistar_epg": false,
     "movistar_fuente": "239.0.0.76:8208",
@@ -34,7 +30,7 @@ const cadenassd = [
     "tvh_id": "TVE.es",
     "tvh_m3u": true,
     "tvh_nombre": "La 1",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -45,7 +41,7 @@ const cadenassd = [
     "tvh_id": "LA2.es",
     "tvh_m3u": true,
     "tvh_nombre": "La 2",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -56,7 +52,7 @@ const cadenassd = [
     "tvh_id": "A3.es",
     "tvh_m3u": true,
     "tvh_nombre": "Antena 3",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -67,7 +63,7 @@ const cadenassd = [
     "tvh_id": "C4.es",
     "tvh_m3u": true,
     "tvh_nombre": "Cuatro",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -78,7 +74,7 @@ const cadenassd = [
     "tvh_id": "T5.es",
     "tvh_m3u": true,
     "tvh_nombre": "Telecinco",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -89,7 +85,7 @@ const cadenassd = [
     "tvh_id": "SEXTA.es",
     "tvh_m3u": true,
     "tvh_nombre": "La Sexta",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -100,7 +96,7 @@ const cadenassd = [
     "tvh_id": "MV3.es",
     "tvh_m3u": true,
     "tvh_nombre": "#0",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -111,7 +107,7 @@ const cadenassd = [
     "tvh_id": "Telemadrid.es",
     "tvh_m3u": true,
     "tvh_nombre": "Telemadrid",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -122,7 +118,7 @@ const cadenassd = [
     "tvh_id": "OTRA.es",
     "tvh_m3u": true,
     "tvh_nombre": "La Otra",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -133,7 +129,7 @@ const cadenassd = [
     "tvh_id": "CABECERA_SERIES.es",
     "tvh_m3u": true,
     "tvh_nombre": "CABECERA SERIES",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -144,7 +140,7 @@ const cadenassd = [
     "tvh_id": "CPSER.es",
     "tvh_m3u": true,
     "tvh_nombre": "Movistar Series",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -155,7 +151,7 @@ const cadenassd = [
     "tvh_id": "MV2.es",
     "tvh_m3u": true,
     "tvh_nombre": "Movistar Series Xtra",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
 
 
@@ -168,7 +164,7 @@ const cadenassd = [
     "tvh_id": "FOXGE.es",
     "tvh_m3u": true,
     "tvh_nombre": "FOX",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -179,7 +175,7 @@ const cadenassd = [
     "tvh_id": "AXN.es",
     "tvh_m3u": true,
     "tvh_nombre": "AXN",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -190,7 +186,7 @@ const cadenassd = [
     "tvh_id": "TNT.es",
     "tvh_m3u": true,
     "tvh_nombre": "TNT",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -201,7 +197,7 @@ const cadenassd = [
     "tvh_id": "PCM.es",
     "tvh_m3u": true,
     "tvh_nombre": "Comedy Central",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -212,7 +208,7 @@ const cadenassd = [
     "tvh_id": "CL13.es",
     "tvh_m3u": true,
     "tvh_nombre": "Calle 13",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -223,7 +219,7 @@ const cadenassd = [
     "tvh_id": "COSMO.es",
     "tvh_m3u": true,
     "tvh_nombre": "COSMO",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -234,7 +230,7 @@ const cadenassd = [
     "tvh_id": "AMC.es",
     "tvh_m3u": true,
     "tvh_nombre": "AMC",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -245,7 +241,7 @@ const cadenassd = [
     "tvh_id": "FOXCR.es",
     "tvh_m3u": true,
     "tvh_nombre": "FOX life",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -256,7 +252,7 @@ const cadenassd = [
     "tvh_id": "SET.es",
     "tvh_m3u": true,
     "tvh_nombre": "AXN White",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -267,7 +263,7 @@ const cadenassd = [
     "tvh_id": "SCI-FI.es",
     "tvh_m3u": true,
     "tvh_nombre": "SyFy",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -278,7 +274,7 @@ const cadenassd = [
     "tvh_id": "NONSTP.es",
     "tvh_m3u": true,
     "tvh_nombre": "Non Stop People",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -289,7 +285,7 @@ const cadenassd = [
     "tvh_id": "MTV.es",
     "tvh_m3u": true,
     "tvh_nombre": "MTV",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -300,7 +296,7 @@ const cadenassd = [
     "tvh_id": "FDFIC.es",
     "tvh_m3u": true,
     "tvh_nombre": "Factoría de Ficción",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -311,7 +307,7 @@ const cadenassd = [
     "tvh_id": "NEOX.es",
     "tvh_m3u": true,
     "tvh_nombre": "Neox",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -322,7 +318,7 @@ const cadenassd = [
     "tvh_id": "ATRESS.es",
     "tvh_m3u": true,
     "tvh_nombre": "Atreseries HD",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -333,7 +329,7 @@ const cadenassd = [
     "tvh_id": "ENERGY.es",
     "tvh_m3u": true,
     "tvh_nombre": "Energy",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -344,7 +340,7 @@ const cadenassd = [
     "tvh_id": "CABECERA_CINE.es",
     "tvh_m3u": true,
     "tvh_nombre": "CABECERA CINE",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -355,7 +351,7 @@ const cadenassd = [
     "tvh_id": "MV1.es",
     "tvh_m3u": true,
     "tvh_nombre": "Movistar Estrenos",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -366,7 +362,7 @@ const cadenassd = [
     "tvh_id": "CPXTRA.es",
     "tvh_m3u": true,
     "tvh_nombre": "Movistar Xtra",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -377,7 +373,7 @@ const cadenassd = [
     "tvh_id": "CPACCI.es",
     "tvh_m3u": true,
     "tvh_nombre": "Movistar Acción",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -388,7 +384,7 @@ const cadenassd = [
     "tvh_id": "CPCOME.es",
     "tvh_m3u": true,
     "tvh_nombre": "Movistar Comedia",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -399,7 +395,7 @@ const cadenassd = [
     "tvh_id": "CPCOLE.es",
     "tvh_m3u": true,
     "tvh_nombre": "Movistar DCine",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -410,7 +406,7 @@ const cadenassd = [
     "tvh_id": "DCESP.es",
     "tvh_m3u": true,
     "tvh_nombre": "Movistar Cine Español",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -421,7 +417,7 @@ const cadenassd = [
     "tvh_id": "TCM.es",
     "tvh_m3u": true,
     "tvh_nombre": "TCM",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -432,7 +428,7 @@ const cadenassd = [
     "tvh_id": "HOLLYW.es",
     "tvh_m3u": true,
     "tvh_nombre": "Hollywood",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -443,7 +439,7 @@ const cadenassd = [
     "tvh_id": "SUNDAN.es",
     "tvh_m3u": true,
     "tvh_nombre": "Sundance Channel",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -454,7 +450,7 @@ const cadenassd = [
     "tvh_id": "DARK.es",
     "tvh_m3u": true,
     "tvh_nombre": "DARK",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -465,7 +461,7 @@ const cadenassd = [
     "tvh_id": "13TV.es",
     "tvh_m3u": true,
     "tvh_nombre": "13 TV",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -476,7 +472,7 @@ const cadenassd = [
     "tvh_id": "TEN.es",
     "tvh_m3u": true,
     "tvh_nombre": "TEN",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -487,7 +483,7 @@ const cadenassd = [
     "tvh_id": "PARCH.es",
     "tvh_m3u": true,
     "tvh_nombre": "Paramount Channel",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -498,7 +494,7 @@ const cadenassd = [
     "tvh_id": "CABECERA_DEPORTES.es",
     "tvh_m3u": true,
     "tvh_nombre": "CABECERA DEPORTES",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -509,7 +505,7 @@ const cadenassd = [
     "tvh_id": "CPFUT.es",
     "tvh_m3u": true,
     "tvh_nombre": "Movistar Fútbol",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -520,7 +516,7 @@ const cadenassd = [
     "tvh_id": "CPPART.es",
     "tvh_m3u": true,
     "tvh_nombre": "Movistar Partidazo",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -531,7 +527,7 @@ const cadenassd = [
     "tvh_id": "BELIGA.es",
     "tvh_m3u": true,
     "tvh_nombre": "Bein LaLiga",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -542,7 +538,7 @@ const cadenassd = [
     "tvh_id": "BELIG1.es",
     "tvh_m3u": true,
     "tvh_nombre": "Bein LaLiga 1",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -553,7 +549,7 @@ const cadenassd = [
     "tvh_id": "BELIG2.es",
     "tvh_m3u": true,
     "tvh_nombre": "Bein LaLiga 2",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -564,7 +560,7 @@ const cadenassd = [
     "tvh_id": "CHUEFA.es",
     "tvh_m3u": true,
     "tvh_nombre": "beIN SPORTS",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -575,7 +571,7 @@ const cadenassd = [
     "tvh_id": "BEMAX1.es",
     "tvh_m3u": true,
     "tvh_nombre": "Bein Max1",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -586,7 +582,7 @@ const cadenassd = [
     "tvh_id": "BEMAX2.es",
     "tvh_m3u": true,
     "tvh_nombre": "Bein Max2",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -597,7 +593,7 @@ const cadenassd = [
     "tvh_id": "REALM.es",
     "tvh_m3u": true,
     "tvh_nombre": "Real Madrid TV",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -608,7 +604,7 @@ const cadenassd = [
     "tvh_id": "CPDEP.es",
     "tvh_m3u": true,
     "tvh_nombre": "Movistar Deportes 1",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -619,7 +615,7 @@ const cadenassd = [
     "tvh_id": "CPD2.es",
     "tvh_m3u": true,
     "tvh_nombre": "Movistar Deportes 2",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -630,7 +626,7 @@ const cadenassd = [
     "tvh_id": "MVF1.es",
     "tvh_m3u": true,
     "tvh_nombre": "Movistar Fórmula 1",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -641,7 +637,7 @@ const cadenassd = [
     "tvh_id": "MVMTGP.es",
     "tvh_m3u": true,
     "tvh_nombre": "Movistar Moto GP",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -652,7 +648,7 @@ const cadenassd = [
     "tvh_id": "GOLF.TV.es",
     "tvh_m3u": true,
     "tvh_nombre": "Movistar Golf",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -663,7 +659,7 @@ const cadenassd = [
     "tvh_id": "ESP.es",
     "tvh_m3u": true,
     "tvh_nombre": "Eurosport 1",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -674,7 +670,7 @@ const cadenassd = [
     "tvh_id": "ESP2.es",
     "tvh_m3u": true,
     "tvh_nombre": "Eurosport 2",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -685,7 +681,7 @@ const cadenassd = [
     "tvh_id": "GOLHD.es",
     "tvh_m3u": true,
     "tvh_nombre": "GOL",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -696,7 +692,7 @@ const cadenassd = [
     "tvh_id": "TDEP.es",
     "tvh_m3u": true,
     "tvh_nombre": "Teledeporte",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -707,7 +703,7 @@ const cadenassd = [
     "tvh_id": "FUTREP.es",
     "tvh_m3u": true,
     "tvh_nombre": "Canal Fútbol Replay",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -718,7 +714,7 @@ const cadenassd = [
     "tvh_id": "CAZPES.es",
     "tvh_m3u": true,
     "tvh_nombre": "Caza y Pesca",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -729,7 +725,7 @@ const cadenassd = [
     "tvh_id": "IBERAL.es",
     "tvh_m3u": true,
     "tvh_nombre": "Iberalia TV",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -740,7 +736,7 @@ const cadenassd = [
     "tvh_id": "CFERIA.es",
     "tvh_m3u": true,
     "tvh_nombre": "Toros TV",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -751,7 +747,7 @@ const cadenassd = [
     "tvh_id": "NATGEO.es",
     "tvh_m3u": true,
     "tvh_nombre": "National Geographic",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -762,7 +758,7 @@ const cadenassd = [
     "tvh_id": "NATGW.es",
     "tvh_m3u": true,
     "tvh_nombre": "Nat Geo Wild",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -773,7 +769,7 @@ const cadenassd = [
     "tvh_id": "HIST.es",
     "tvh_m3u": true,
     "tvh_nombre": "Historia",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   }, 
   {
     "movistar_epg": false,
@@ -784,7 +780,7 @@ const cadenassd = [
     "tvh_id": "DCR.es",
     "tvh_m3u": true,
     "tvh_nombre": "Discovery Channel",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -795,7 +791,7 @@ const cadenassd = [
     "tvh_id": "ODISEA.es",
     "tvh_m3u": true,
     "tvh_nombre": "Odisea",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -806,7 +802,7 @@ const cadenassd = [
     "tvh_id": "BIOGRA.es",
     "tvh_m3u": true,
     "tvh_nombre": "A&E",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },  
   {
     "movistar_epg": false,
@@ -817,7 +813,7 @@ const cadenassd = [
     "tvh_id": "VJR.es",
     "tvh_m3u": true,
     "tvh_nombre": "Viajar",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -828,7 +824,7 @@ const cadenassd = [
     "tvh_id": "DCRMAX.es",
     "tvh_m3u": true,
     "tvh_nombre": "Discovery Max",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -839,7 +835,7 @@ const cadenassd = [
     "tvh_id": "CYM.es",
     "tvh_m3u": true,
     "tvh_nombre": "Crimen & Investigación",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -850,7 +846,7 @@ const cadenassd = [
     "tvh_id": "CCTV-E.es",
     "tvh_m3u": true,
     "tvh_nombre": "CCTV Español",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -861,7 +857,7 @@ const cadenassd = [
     "tvh_id": "CACOC.es",
     "tvh_m3u": true,
     "tvh_nombre": "Canal Cocina",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -872,7 +868,7 @@ const cadenassd = [
     "tvh_id": "DECASA.es",
     "tvh_m3u": true,
     "tvh_nombre": "Canal Decasa",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -883,7 +879,7 @@ const cadenassd = [
     "tvh_id": "DKISS.es",
     "tvh_m3u": true,
     "tvh_nombre": "DKISS",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -894,7 +890,7 @@ const cadenassd = [
     "tvh_id": "DIVINI.es",
     "tvh_m3u": true,
     "tvh_nombre": "Divinity",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -905,7 +901,7 @@ const cadenassd = [
     "tvh_id": "NOVA.es",
     "tvh_m3u": true,
     "tvh_nombre": "Nova",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -916,7 +912,7 @@ const cadenassd = [
     "tvh_id": "MEGA.es",
     "tvh_m3u": true,
     "tvh_nombre": "Mega",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -927,7 +923,7 @@ const cadenassd = [
     "tvh_id": "BEMAD.es",
     "tvh_m3u": true,
     "tvh_nombre": "BEMAD",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -938,7 +934,7 @@ const cadenassd = [
     "tvh_id": "GARAGE.es",
     "tvh_m3u": true,
     "tvh_nombre": "Garage TV",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -949,7 +945,7 @@ const cadenassd = [
     "tvh_id": "ORBE21.es",
     "tvh_m3u": true,
     "tvh_nombre": "Canal Orbe 21",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -960,7 +956,7 @@ const cadenassd = [
     "tvh_id": "BABY.es",
     "tvh_m3u": true,
     "tvh_nombre": "Baby TV",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -971,7 +967,7 @@ const cadenassd = [
     "tvh_id": "PLAYDC.es",
     "tvh_m3u": true,
     "tvh_nombre": "Disney Junior",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -982,7 +978,7 @@ const cadenassd = [
     "tvh_id": "PANDA.es",
     "tvh_m3u": true,
     "tvh_nombre": "Canal Panda",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -993,7 +989,7 @@ const cadenassd = [
     "tvh_id": "NICKJR.es",
     "tvh_m3u": true,
     "tvh_nombre": "Nick Jr",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -1004,7 +1000,7 @@ const cadenassd = [
     "tvh_id": "NICK.es",
     "tvh_m3u": true,
     "tvh_nombre": "Nickelodeon",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -1015,7 +1011,7 @@ const cadenassd = [
     "tvh_id": "DCHXD.es",
     "tvh_m3u": true,
     "tvh_nombre": "Disney XD",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -1026,7 +1022,7 @@ const cadenassd = [
     "tvh_id": "DCH.es",
     "tvh_m3u": true,
     "tvh_nombre": "Disney Channel",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -1037,7 +1033,7 @@ const cadenassd = [
     "tvh_id": "BOING.es",
     "tvh_m3u": true,
     "tvh_nombre": "Boing",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -1048,7 +1044,7 @@ const cadenassd = [
     "tvh_id": "CLANTV.es",
     "tvh_m3u": true,
     "tvh_nombre": "Clan TVE",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -1059,7 +1055,7 @@ const cadenassd = [
     "tvh_id": "Los40.es",
     "tvh_m3u": true,
     "tvh_nombre": "Los40",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -1070,7 +1066,7 @@ const cadenassd = [
     "tvh_id": "VH1.es",
     "tvh_m3u": true,
     "tvh_nombre": "VH1",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -1081,7 +1077,7 @@ const cadenassd = [
     "tvh_id": "CLASSI.es",
     "tvh_m3u": true,
     "tvh_nombre": "Classica",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -1092,7 +1088,7 @@ const cadenassd = [
     "tvh_id": "BBC.es",
     "tvh_m3u": true,
     "tvh_nombre": "BBC World News",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -1103,7 +1099,7 @@ const cadenassd = [
     "tvh_id": "CNN.es",
     "tvh_m3u": true,
     "tvh_nombre": "CNN International",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -1114,7 +1110,7 @@ const cadenassd = [
     "tvh_id": "FOXNWS.es",
     "tvh_m3u": true,
     "tvh_nombre": "FOX News",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -1125,7 +1121,7 @@ const cadenassd = [
     "tvh_id": "ENW.es",
     "tvh_m3u": true,
     "tvh_nombre": "Euronews",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -1136,7 +1132,7 @@ const cadenassd = [
     "tvh_id": "ALJAZE.es",
     "tvh_m3u": true,
     "tvh_nombre": "Al Jazeera",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -1147,7 +1143,7 @@ const cadenassd = [
     "tvh_id": "FRA.EN.es",
     "tvh_m3u": true,
     "tvh_nombre": "France 24",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -1158,7 +1154,7 @@ const cadenassd = [
     "tvh_id": "RTESP.es",
     "tvh_m3u": true,
     "tvh_nombre": "RT Español",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -1169,7 +1165,7 @@ const cadenassd = [
     "tvh_id": "NBC.es",
     "tvh_m3u": true,
     "tvh_nombre": "CNBC Europe",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -1180,7 +1176,7 @@ const cadenassd = [
     "tvh_id": "TV5.es",
     "tvh_m3u": true,
     "tvh_nombre": "TV5MONDE",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -1191,7 +1187,7 @@ const cadenassd = [
     "tvh_id": "BL.es",
     "tvh_m3u": true,
     "tvh_nombre": "Bloomberg",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -1202,7 +1198,7 @@ const cadenassd = [
     "tvh_id": "INTECO.es",
     "tvh_m3u": true,
     "tvh_nombre": "Intereconomía TV",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -1213,7 +1209,7 @@ const cadenassd = [
     "tvh_id": "LIBDIG.es",
     "tvh_m3u": true,
     "tvh_nombre": "Libertad Digital",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -1224,7 +1220,7 @@ const cadenassd = [
     "tvh_id": "312.es",
     "tvh_m3u": true,
     "tvh_nombre": "i24news",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -1235,7 +1231,7 @@ const cadenassd = [
     "tvh_id": "CNCWOR.es",
     "tvh_m3u": true,
     "tvh_nombre": "CNC World",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -1356,7 +1352,7 @@ const cadenassd = [
     "tvh_id": "TVG.es",
     "tvh_m3u": true,
     "tvh_nombre": "TV Galicia",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -1367,7 +1363,7 @@ const cadenassd = [
     "tvh_id": "TVC.es",
     "tvh_m3u": true,
     "tvh_nombre": "TV3 Cat",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -1378,7 +1374,7 @@ const cadenassd = [
     "tvh_id": "ETB.es",
     "tvh_m3u": true,
     "tvh_nombre": "ETB Sat",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|REMOTE"
   },
   {
     "movistar_epg": false,
@@ -1393,6 +1389,5 @@ const cadenassd = [
   }
 ];
 
-
-export default cadenassd;
+export default cadenasREMOTE;
 

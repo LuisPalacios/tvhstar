@@ -3,32 +3,18 @@
 //
 //  Este program se queda en el background com daemon para 
 //  hacer una petición diaria al servidor de Movistar Plus
-//  para bajarse el EPG. 
+//  para bajarse el EPG. Además, al arrancar, crea los 
+//  ficheros /tmp/tvHOME.m3u y /tmp/tvREMOTE.m3u
 //
 'use strict';
-
-// Instalación como desarrollador: 
-//
-// Clonar desde Github
-// npm install o npm install --save request request-promise fs xml2js
-
-// Compilación, instalación del XML y preparado para Tvheadend
-//
-// $ npm run build && npm run start
-// $ scp guia.movistar-xmltv.xml usuario@tu.servidor_tvheadend.com:guia/guia.xml
-// $ scp tv.m3u usuario@tu.servidor_tvheadend.com:tv.m3u
-// $ ssh tu.servidor_tvheadend.com
-// ~tv # cp tv.m3u /etc/tvheadend
-// ~tv $ sudo systemctl restart tvheadend
-//
 
 // Imports
 import Utils from './utils';
 import Movistar from './movistar';
-import Cadenas from './cadenas';
-import CadenasDIN from './cadenas_din';
-import CadenasSD from './cadenas_sd';
-import CadenasSDDIN from './cadenas_sd_din';
+import CadenasHOME from './cadenasHOME';
+import CadenasHOME_din from './cadenasHOME_din';
+import CadenasREMOTE from './cadenasREMOTE';
+import CadenasREMOTE_din from './cadenasREMOTE_din';
 import fs from 'fs';
 
 // Timers
@@ -43,34 +29,33 @@ let progPreferences = {
   // CADENAS:
   // 
   // Variable que apunta al array de cadenas (canales) que voy a 
-  // usar para las TV's (Tag=TV) y que importo desde src/cadenas.js
-  cadenas: Cadenas,
+  // usar para los clientes que se conecten por la LAN casera. 
+  cadenasHOME: CadenasHOME,
   // Canales dinámicos que sobreescriben la fuente en el fichero m3u,
-  // esta funcionalidad está implementada pero no la utilizo, 
   // permite añadir canales de forma dinámica pero sin tocar los 
-  // originales. Lo uso por facilitar el mantenimiento de los originales
-  cadenas_din: CadenasDIN,
+  // originales. 
+  cadenasHOME_din: CadenasHOME_din,
 
   // Variable que apunta al array de cadenas SD que voy a usar
   // en los dispositivos Wifi para consumir menos ancho de banda. 
-  cadenas_sd: CadenasSD,
+  cadenasREMOTE: CadenasREMOTE,
   // Canales dinámicos que sobreescriben la fuente en el fichero m3u
-  cadenas_sd_din: CadenasSDDIN,
+  cadenasREMOTE_din: CadenasREMOTE_din,
 
 
   // M3U: 
   // 
-  // Nombre del fichero de salida donde dejaré la lista de canales IPTV de cadenas.js
-  ficheroM3U: '/tmp/tv.m3u',
-  // Nombre del fichero de salida donde dejaré la lista de canales IPTV de cadenas_sd.js
-  ficheroM3USD: '/tmp/tvwifi.m3u',
+  // Nombre del fichero de salida donde dejaré la lista de canales IPTV de cadenasHOME.js
+  ficheroM3U_HOME: '/tmp/tvHOME.m3u',
+  // Nombre del fichero de salida donde dejaré la lista de canales IPTV de cadenasREMOTE.js
+  ficheroM3U_REMOTE: '/tmp/tvREMOTE.m3u',
 
-  // Durante la creación del fichero tv.m3u se pone la URL del canal, pero como 
+  // Durante la creación del fichero ficheroM3U_HOME se pone la URL del canal, pero como 
   // tenemos dos opciones (UDP o TCP) a continuación debes modificar la siguiente
   // variable para adecuarlo a tu caso concreto. 
   // 
-  // Este prefijo se pondrá delante del valor de cadenas.movistar_fuente que 
-  // encuentras en el fichero src/cadenas.js...
+  // Este prefijo se pondrá delante del valor de "movistar_fuente"" que 
+  // encuentras en el fichero src/cadenas*.js...
   // 
   // Ejemplos con UDP y TCP: 
   // uri_prefix: 'rtp://@'
@@ -78,7 +63,7 @@ let progPreferences = {
   uri_prefix: 'http://192.168.100.1:4022/udp/',
 
   // Respecto a XMLTV, el objetivo es crear un fichero XMLTV compatible con
-  //  "http://xmltv.cvs.sourceforge.net/viewvc/xmltv/xmltv/xmltv.dtd"
+  // "http://xmltv.cvs.sourceforge.net/viewvc/xmltv/xmltv/xmltv.dtd"
   //
   // Ficheros XMLTV: En esta versión el proceso crea múltiples ficheros, 
   // - Descargo el EPG que llega en formato XML "propio de Movistar" y lo salvo en "guia.movistar-xml.xml"
@@ -93,17 +78,17 @@ let progPreferences = {
   ficheroJSON: '/tmp/guia.movistar-xml.json',
   ficheroJSONTV: '/tmp/guia.movistar-xmltv.json',
   //
-  // Fichero final 
-  ficheroXMLTV: '/home/luis/guia/guia.xml',
+  // Fichero final:
+  ficheroXMLTV: '/Users/luis/guia/guia.xml',
 
   // 
   // El programa ejecutará una descarga del EPG nada más arrancar y se quedará 
-  // ejecutándose en el background hasta una hora determinada el día siguiente. 
+  // en el background hasta una hora determinada del día siguiente. 
   //
   // La hora se elegirá aleatoriamente entre los dos parámetros siguientes. En
   // el siguiente ejemplo estamos indicando que se elija una hora entre las
   // dos y las siete de la mañana. Si quieres afinar más, puedes poner el mismo 
-  // valor a ambas variables, pero te recomiendo dejarlo así. Es una forma 
+  // valor a ambas variables pero te recomiendo dejarlo así, es una forma 
   // elegante de NO sobrecargar a los servidores de Movistar. 
   horaInicio: 2,
   horaFin: 6,
@@ -130,13 +115,13 @@ let progPreferences = {
   isConversionRunning: false,
 
   // Modo desarrollador (asume que ya se ha descargado el EPG),
-  developerMode: false, // Cambiar a 'false' en producción.
+  developerMode: true, // Cambiar a 'false' en producción.
 
 }
 
 
 // =========================================================
-// Mostrar el JSON 'cadenas' de forma elegante
+// Funciones
 // =========================================================
 function comparaCadenasString(a,b) {
   if (a.movistar_numero < b.movistar_numero)
@@ -156,28 +141,20 @@ function comparaCadenasInteger(a,b) {
   return 0;
 }
 
-// =========================================================
-// Método principal 
-// =========================================================
+function creaFicheroM3U (cadenas, cadenas_din, ficheroM3U) {
 
-function sessionController() {
-
-  // Paro mi propio timer, lo re-programaré más tarde
-  clearInterval(timerSessionController);
-
-  // M3U: 
-  // 
   // Sobreescribo con los dinámicos
-  progPreferences.cadenas_din.map(cadena_din => {
-    let index = progPreferences.cadenas.findIndex(item => item.tvh_nombre === cadena_din.tvh_nombre);
+  cadenas_din.map(cadena_din => {
+    let index = cadenas.findIndex(item => item.tvh_nombre === cadena_din.tvh_nombre);
     if ( index !== -1 ) {
-      progPreferences.cadenas[index].tvh_fuente = cadena_din.tvh_fuente;
+      cadenas[index].tvh_fuente = cadena_din.tvh_fuente;
     }
   });
   // Genero el fichero .m3u (el encoding por defecto es utf8)
-  var wstream = fs.createWriteStream(progPreferences.ficheroM3U);
+  var wstream = fs.createWriteStream(ficheroM3U);
   wstream.write('#EXTM3U\n');
-  progPreferences.cadenas.map(cadena => {
+  // añado los canales
+  cadenas.map(cadena => {
     if ( cadena.tvh_m3u === true ) {
       wstream.write(`#EXTINF:-1 tvh-epg="disable" tvh-chnum="${cadena.movistar_numero}" tvh-tags="${cadena.tvh_tag}",${cadena.tvh_nombre}\n`);
       if ( cadena.tvh_fuente !== undefined ) {
@@ -187,43 +164,74 @@ function sessionController() {
       }
     }
   });
-  // // añado los canales SD
-  // progPreferences.cadenas_sd.map(cadena_sd => {
-  //   if ( cadena_sd.tvh_m3u === true ) {
-  //     wstream.write(`#EXTINF:-1 tvh-epg="disable" tvh-chnum="${cadena_sd.movistar_numero}" tvh-tags="${cadena_sd.tvh_tag}",${cadena_sd.tvh_nombre}\n`);
-  //     if ( cadena_sd.tvh_fuente !== undefined ) {
-  //       wstream.write(`${cadena_sd.tvh_fuente}\n`);
+  wstream.end();
+
+}
+
+// =========================================================
+// Método principal 
+// =========================================================
+
+function sessionController() {
+
+  // Paro mi propio timer, lo re-programaré más tarde
+  clearInterval(timerSessionController);
+
+  // M3U cadenasHOME : 
+  // // 
+  // // Sobreescribo cadenasHOME con los dinámicos de cadenasHOME_din
+  // progPreferences.cadenasHOME_din.map(cadena_din => {
+  //   let index = progPreferences.cadenasHOME.findIndex(item => item.tvh_nombre === cadena_din.tvh_nombre);
+  //   if ( index !== -1 ) {
+  //     progPreferences.cadenasHOME[index].tvh_fuente = cadena_din.tvh_fuente;
+  //   }
+  // });
+  // // Genero el fichero .m3u (el encoding por defecto es utf8)
+  // var wstream = fs.createWriteStream(progPreferences.ficheroM3U_HOME);
+  // wstream.write('#EXTM3U\n');
+  // // añado los canales
+  // progPreferences.cadenasHOME.map(cadena => {
+  //   if ( cadena.tvh_m3u === true ) {
+  //     wstream.write(`#EXTINF:-1 tvh-epg="disable" tvh-chnum="${cadena.movistar_numero}" tvh-tags="${cadena.tvh_tag}",${cadena.tvh_nombre}\n`);
+  //     if ( cadena.tvh_fuente !== undefined ) {
+  //       wstream.write(`${cadena.tvh_fuente}\n`);
   //     } else {
-  //       wstream.write(`${progPreferences.uri_prefix}${cadena_sd.movistar_fuente}\n`);
+  //       wstream.write(`${progPreferences.uri_prefix}${cadena.movistar_fuente}\n`);
   //     }
   //   }
   // });
-  wstream.end();
+  // wstream.end();
 
-  // M3USD: 
-  // 
-  // Sobreescribo con los dinámicos
-  progPreferences.cadenas_sd_din.map(cadena_sd_din => {
-    let index = progPreferences.cadenas_sd.findIndex(item => item.tvh_nombre === cadena_sd_din.tvh_nombre);
-    if ( index !== -1 ) {
-      progPreferences.cadenas_sd[index].tvh_fuente = cadena_sd_din.tvh_fuente;
-    }
-  });
-  // Genero el fichero .m3u (el encoding por defecto es utf8)
-  var wstream = fs.createWriteStream(progPreferences.ficheroM3USD);
-  wstream.write('#EXTM3U\n');
-  // añado los canales SD
-  progPreferences.cadenas_sd.map(cadena_sd => {
-    if ( cadena_sd.tvh_m3u === true ) {
-      wstream.write(`#EXTINF:-1 tvh-epg="disable" tvh-chnum="${cadena_sd.movistar_numero}" tvh-tags="${cadena_sd.tvh_tag}",${cadena_sd.tvh_nombre}\n`);
-      if ( cadena_sd.tvh_fuente !== undefined ) {
-        wstream.write(`${cadena_sd.tvh_fuente}\n`);
-      } else {
-        wstream.write(`${progPreferences.uri_prefix}${cadena_sd.movistar_fuente}\n`);
-      }
-    }
-  });
-  wstream.end();
+  // // M3U cadenasREMOTE : 
+  // // 
+  // // Sobreescribo cadenasREMOTE con los dinámicos de cadenasREMOTE_din
+  // progPreferences.cadenasREMOTE_din.map(cadena_din => {
+  //   let index = progPreferences.cadenasREMOTE.findIndex(item => item.tvh_nombre === cadena_din.tvh_nombre);
+  //   if ( index !== -1 ) {
+  //     progPreferences.cadenasREMOTE[index].tvh_fuente = cadena_din.tvh_fuente;
+  //   }
+  // });
+  // // Genero el fichero .m3u (el encoding por defecto es utf8)
+  // var wstream = fs.createWriteStream(progPreferences.ficheroM3U_REMOTE);
+  // wstream.write('#EXTM3U\n');
+  // // añado los canales
+  // progPreferences.cadenasREMOTE.map(cadena => {
+  //   if ( cadena.tvh_m3u === true ) {
+  //     wstream.write(`#EXTINF:-1 tvh-epg="disable" tvh-chnum="${cadena.movistar_numero}" tvh-tags="${cadena.tvh_tag}",${cadena.tvh_nombre}\n`);
+  //     if ( cadena.tvh_fuente !== undefined ) {
+  //       wstream.write(`${cadena.tvh_fuente}\n`);
+  //     } else {
+  //       wstream.write(`${progPreferences.uri_prefix}${cadena.movistar_fuente}\n`);
+  //     }
+  //   }
+  // });
+  // wstream.end();
+
+  // M3U cadenasHOME : 
+  creaFicheroM3U(progPreferences.cadenasHOME, progPreferences.cadenasHOME_din, progPreferences.ficheroM3U_HOME);
+
+  // M3U cadenasHOME : 
+  creaFicheroM3U(progPreferences.cadenasREMOTE, progPreferences.cadenasREMOTE_din, progPreferences.ficheroM3U_REMOTE);
 
 
   // XMLTV: 

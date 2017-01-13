@@ -22,14 +22,19 @@ const movistar = {
 
     // Aseguremos...
     if (!progPreferences || !progPreferences.urlMovistar ||
-      !progPreferences.cadenas || !progPreferences.diasInicioFin) {
+      !progPreferences.cadenasHOME || !progPreferences.diasInicioFin) {
       console.error('ERROR INTERNO GRAVE!! Movistar.requestEPG necesita argumentos.')
       process.exit();
     }
 
     // Creo el array con los id's
     let arrayCadenas = [];
-    progPreferences.cadenas.map(cadena => {
+    progPreferences.cadenasHOME.map(cadena => {
+      if (cadena.movistar_epg) {
+        arrayCadenas.push(cadena.movistar_id)
+      }
+    });
+    progPreferences.cadenasREMOTE.map(cadena => {
       if (cadena.movistar_epg) {
         arrayCadenas.push(cadena.movistar_id)
       }
