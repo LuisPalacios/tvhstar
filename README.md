@@ -132,6 +132,9 @@ En el directorio tvhstar/build tendrás lo necesario para ejecutar el programa.
 
     tvhstar $ npm run start
 
+NOTA: Si vuelves a modificar cualquier fichero de los fuentes entonces tendrás 
+que volver a hacer un build previo al start (`npm run build`) 
+
 
 ### Ejecuión vía systemd
 
