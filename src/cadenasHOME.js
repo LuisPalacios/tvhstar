@@ -632,13 +632,13 @@ const cadenasHOME = [
     "tvh_tag": "HD|HOME"
   },
   {
-    "movistar_epg": true,
+    "movistar_epg": false,
     "movistar_fuente": "239.0.3.65:8208",
     "movistar_id": "BARNA",
     "movistar_nombre": "Barça TV",
     "movistar_numero": "54",
     "tvh_id": "BARNA.es",
-    "tvh_m3u": true,
+    "tvh_m3u": false,
     "tvh_nombre": "Barça TV",
     "tvh_tag": "HD|HOME"
   },
