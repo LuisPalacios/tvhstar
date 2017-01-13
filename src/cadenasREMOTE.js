@@ -144,7 +144,7 @@ const cadenasREMOTE = [
   },
   {
     "movistar_epg": false,
-    "movistar_fuente": "239.0.5.20:8208",
+    "movistar_fuente": "239.0.3.20:8208",
     "movistar_id": "MV2",
     "movistar_nombre": "Movistar Series Xtra",
     "movistar_numero": "12",
@@ -153,8 +153,6 @@ const cadenasREMOTE = [
     "tvh_nombre": "Movistar Series Xtra",
     "tvh_tag": "SD|REMOTE"
   },
-
-
   {
     "movistar_epg": false,
     "movistar_fuente": "239.0.0.74:8208",

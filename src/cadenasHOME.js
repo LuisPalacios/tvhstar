@@ -376,7 +376,7 @@ const cadenasHOME = [
     "tvh_id": "CABECERA_CINE.es",
     "tvh_m3u": true,
     "tvh_nombre": "CABECERA CINE",
-    "tvh_tag": "SD|Wifi"
+    "tvh_tag": "SD|HOME"
   },
   {
     "movistar_epg": true,
