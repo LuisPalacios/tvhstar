@@ -198,6 +198,9 @@ const utils = {
           // A pelo, el lenguaje siempre será 'es'
           let langES = 'es';
 
+          // Para las categorías
+          let langEN = 'en';
+
           // SECCIÓN 'channel'
           // -------------------
 
@@ -293,7 +296,7 @@ const utils = {
               {
                 "_": categoria,
                 "$": {
-                  "lang": langES
+                  "lang": langEN
                 }
               }
             ]
