@@ -178,56 +178,6 @@ function sessionController() {
   clearInterval(timerSessionController);
 
   // M3U cadenasHOME : 
-  // // 
-  // // Sobreescribo cadenasHOME con los dinámicos de cadenasHOME_din
-  // progPreferences.cadenasHOME_din.map(cadena_din => {
-  //   let index = progPreferences.cadenasHOME.findIndex(item => item.tvh_nombre === cadena_din.tvh_nombre);
-  //   if ( index !== -1 ) {
-  //     progPreferences.cadenasHOME[index].tvh_fuente = cadena_din.tvh_fuente;
-  //   }
-  // });
-  // // Genero el fichero .m3u (el encoding por defecto es utf8)
-  // var wstream = fs.createWriteStream(progPreferences.ficheroM3U_HOME);
-  // wstream.write('#EXTM3U\n');
-  // // añado los canales
-  // progPreferences.cadenasHOME.map(cadena => {
-  //   if ( cadena.tvh_m3u === true ) {
-  //     wstream.write(`#EXTINF:-1 tvh-epg="disable" tvh-chnum="${cadena.movistar_numero}" tvh-tags="${cadena.tvh_tag}",${cadena.tvh_nombre}\n`);
-  //     if ( cadena.tvh_fuente !== undefined ) {
-  //       wstream.write(`${cadena.tvh_fuente}\n`);
-  //     } else {
-  //       wstream.write(`${progPreferences.uri_prefix}${cadena.movistar_fuente}\n`);
-  //     }
-  //   }
-  // });
-  // wstream.end();
-
-  // // M3U cadenasREMOTE : 
-  // // 
-  // // Sobreescribo cadenasREMOTE con los dinámicos de cadenasREMOTE_din
-  // progPreferences.cadenasREMOTE_din.map(cadena_din => {
-  //   let index = progPreferences.cadenasREMOTE.findIndex(item => item.tvh_nombre === cadena_din.tvh_nombre);
-  //   if ( index !== -1 ) {
-  //     progPreferences.cadenasREMOTE[index].tvh_fuente = cadena_din.tvh_fuente;
-  //   }
-  // });
-  // // Genero el fichero .m3u (el encoding por defecto es utf8)
-  // var wstream = fs.createWriteStream(progPreferences.ficheroM3U_REMOTE);
-  // wstream.write('#EXTM3U\n');
-  // // añado los canales
-  // progPreferences.cadenasREMOTE.map(cadena => {
-  //   if ( cadena.tvh_m3u === true ) {
-  //     wstream.write(`#EXTINF:-1 tvh-epg="disable" tvh-chnum="${cadena.movistar_numero}" tvh-tags="${cadena.tvh_tag}",${cadena.tvh_nombre}\n`);
-  //     if ( cadena.tvh_fuente !== undefined ) {
-  //       wstream.write(`${cadena.tvh_fuente}\n`);
-  //     } else {
-  //       wstream.write(`${progPreferences.uri_prefix}${cadena.movistar_fuente}\n`);
-  //     }
-  //   }
-  // });
-  // wstream.end();
-
-  // M3U cadenasHOME : 
   creaFicheroM3U(progPreferences.cadenasHOME, progPreferences.cadenasHOME_din, progPreferences.ficheroM3U_HOME);
 
   // M3U cadenasHOME : 
