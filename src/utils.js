@@ -251,6 +251,9 @@ const utils = {
             lastProgramme["$"].stop = programme_start;
           }
 
+          // Convierto la Categoría a las soportadas por Tvheadend
+          let categoria = utils.getCategoria ( pase.tipo_ficha[0] );
+
           // Preparo el pase en el nuevo formato
           let programme = {
             "$": {
@@ -288,7 +291,7 @@ const utils = {
             ],
             "category": [
               {
-                "_": pase.tipo_ficha[0],
+                "_": categoria,
                 "$": {
                   "lang": langES
                 }
@@ -308,6 +311,35 @@ const utils = {
     }
     return (jsontv);
   },
+
+  // Tvheadend reconoce la categoría xmltv solo si coincide con alguna de las 
+  // definidas en el estándar DVB. Ver el fuente de tvheadend/src/epg.c
+  // Además, solo tiene 10 configuradas. Este método mapea las que vienen
+  // de Movistar a una de estas 10. 
+  //
+  // "Movie / Drama" 
+  // "News / Current affairs" 
+  // "Show / Games" 
+  // "Sports" 
+  // "Children's / Youth" 
+  // "Music" 
+  // "Art / Culture" 
+  // "Social / Political issues / Economics" 
+  // "Education / Science / Factual topics" 
+  // "Leisure hobbies" 
+  // "Special characteristics"
+  getCategoria: function (original) {
+    switch (original ) {
+      case 'Programa':
+      return "Social"; 
+      case 'Seriado': 
+      return "Show"
+      default: 
+      return "Social";
+    }
+    return original;
+  },
+
 
   // Convierto de formato JSONTV a XMLTV
   convierteJSONTVaXMLTV: function (datosJSONTV) {
