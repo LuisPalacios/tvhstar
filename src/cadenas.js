@@ -368,14 +368,14 @@ const cadenas = [
   },
   {
     "movistar_epg": false,
-    "movistar_fuente": "239.0.0.178:8208",
+    "movistar_fuente": "239.0.3.30:8208",
     "movistar_id": "CABECERA_CINE",
     "movistar_nombre": "CINE",
     "movistar_numero": "30",
     "tvh_id": "CABECERA_CINE.es",
     "tvh_m3u": true,
-    "tvh_nombre": "CINE",
-    "tvh_tag": "HD|TV"
+    "tvh_nombre": "CABECERA CINE",
+    "tvh_tag": "SD|Wifi"
   },
   {
     "movistar_epg": true,
