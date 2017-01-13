@@ -60,7 +60,7 @@ Nota: No funciona con node.js 4.6.x, lo he probado con la versión 6.9.x
     ~ # emerge -v nodejs
 
 Después preparo el proyecto ejecutando `npm install` que creará el directorio
-node_modules con con todas las dependencias.
+node_modules con todas las dependencias.
 
     ~ $ git clone https://github.com/LuisPalacios/tvhstar.git
     ~ $ cd tvhstar
@@ -68,17 +68,19 @@ node_modules con con todas las dependencias.
 
 ## Configuración
 
-Antes de hacer el build deberías revisar y modificar dos ficheros 
+Antes de hacer el build deberías revisar y modificar los ficheros 
 
     * src/server.js -> objeto "progPreferences"
-    * src/cadenas.js
+    * src/cadenasHOME.js
+    * src/cadenasREMOTE.js
 
-`server.js`: Un parámetro interesante es el fichero de salida del XMLTV. En mi caso que ejecuto node.js en el mismo 
-equipo donde está Tvheadend parametrizo que deje el fichero ya en su sitio final: 
+`server.js`: Revisa los parametros bajo "progPreferences", los más importantes son los siguientes
+y su significado está descrito en el propio fuente.
 
-    ficheroXMLTV: '/home/luis/guia/guia.xml',
-
-`cadenasHOME|REMOTE.js`: en este tipo de fichero es donde mantengo la lista de los
+    ficheroXMLTV: Directorio donde se dejará el fichero XMLTV final (guia.xml). 
+    uri_prefix: URI a poner como prefijo a los canales. 
+    
+`cadenasHOME|REMOTE.js`: en estos ficheros mantengo la lista de los
 canales de Movistar TV y sus parámetros para vincular entre sí el servicio y Tvheadend. 
 Quizá eches de menos algunos canales que he omitido o no he activado (opciones
 en false), el motivo es por mi demarcación o porque no los tengo contratados o 
@@ -119,10 +121,10 @@ Una vez que hayas revisado los ficheros anteriores ya puedes construir el progra
 
 ## Ejecución
 
-Para ejecutar el programa puedes optar por una ejecución manual la primera vez. Después
-te recomiendo que lo programes para quedarse como un daemon en tu sistema. No olvides
+Para lanzar el programa puedes optar por una ejecución manual o dejarlo como 
+un daemon. No olvides
 revisar la variable `ficheroXMLTV` en `server.js` para que apunte 
-al directorio final donde quieres dejar tu fichero XMLTV resultante. 
+al directorio final donde quieres dejar el XMLTV resultante. 
 
 ### Ejecución manual
 
@@ -153,20 +155,20 @@ usar como fuente para una "IPTV Automatic Network" de Tvheadend.
     tvhstar $ sudo cp /tmp/tvREMOTE.m3u /etc/tvheadend     
     
 Creo dos ficheros distintos para poder crear dos "Network" distintas, cada una apuntando
-a uno de los ficheros, de modo que sea luego más fácil mantener Tvheadend. 
+a uno de ellos de modo que sea luego más fácil mantener Tvheadend. 
 
-Observarás que los canales de tvHOME.m3u llevan el tag "HOME" y los de tvREMOTE llevan 
-el tag "REMOTE". Estos TAG's se importarán en Tvheadend y es una forma muy sencilla de
+Observarás que los canales de `tvHOME.m3u` llevan el tag `HOME` y los de `tvREMOTE` llevan 
+el tag `REMOTE`. Estos TAG's se importarán en Tvheadend y es una forma muy sencilla de
 asociar a los clientes qué canales queremos enviarles (crear usuarios/passwords y 
 asociales los canales de un Tag concreto). 
 
   
 ## PICONS (2017)
 
-Copio en el directorio `picons` los logos de los canales para poder copiarlos a tvheadend tal como 
+He dejado un montón de `picons` con los logos de los canales para poder copiarlos a tvheadend tal como 
 describo en el apunte [Tvheadend y Movistar TV (2016)](http://www.luispa.com/archivos/4571). Los
 logos están actualizados a fecha enero de 2017, utilizando como fuente 
-[picons.eu](http://picons.eu) un gran proyecto con logos de muy alta calidad. 
+[picons.eu](http://picons.eu), donde tiene logos de muy alta calidad. 
 
 
 ## Información adicional
