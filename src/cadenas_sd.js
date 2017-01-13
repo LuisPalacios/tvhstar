@@ -143,7 +143,7 @@ const cadenassd = [
     "movistar_numero": "11",
     "tvh_id": "CPSER.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Movistar Series HD",
+    "tvh_nombre": "Movistar Series",
     "tvh_tag": "SD|Wifi"
   },
   {
@@ -154,7 +154,7 @@ const cadenassd = [
     "movistar_numero": "12",
     "tvh_id": "MV2.es",
     "tvh_m3u": true,
-    "tvh_nombre": "Movistar Series Xtra HD",
+    "tvh_nombre": "Movistar Series Xtra",
     "tvh_tag": "SD|Wifi"
   },
 
