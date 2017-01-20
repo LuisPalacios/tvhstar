@@ -257,22 +257,81 @@ const utils = {
                     // Convierto la Categoría a las soportadas por Tvheadend
                     let categoria = utils.getCategoria(pase.tipo_ficha[0]);
 
-                    // Preparo el titulo y subtítulo desde el XML, 
-                    // que por lo que veo en la "descripción_corta"
-                    // así: "titulo: subtítulo"
+                    // Preparo el titulo y subtítulo desde el XML:
+                    // pase.descripcion_corta[0]: "título: subtítulo" o "título"
+                    // pase.titulo[0]: "subtítulo"
                     // (OJO que el título puede que tenga también ":")
                     let titulo = pase.descripcion_corta[0];
                     let subtitulo = pase.titulo[0];
-                    let descCorta = pase.descripcion_corta[0];
-                    let lastIndex = descCorta.lastIndexOf(':');
+
+                    // Pillo el título
+                    let lastIndex = pase.descripcion_corta[0].lastIndexOf(':');
                     if (lastIndex !== -1) {
-                        let newTitulo = descCorta.substr(0, lastIndex);
-                        if ( newTitulo.length > 0 ) {
+                        let newTitulo = pase.descripcion_corta[0].substr(0, lastIndex);
+                        // Elimino espacios de delante o detrás 
+                        newTitulo = newTitulo.trim();
+                        // Me aseguro que tengo algo
+                        if (newTitulo.length > 0) {
                             titulo = newTitulo;
                         }
                     }
 
+                    // Casos especiales para KODI, (si no te convence, coménta esta zona)
+                    // 
+                    // - Si viene "Cine" en el título y "Título de la peli" en el subtítulo
+                    //   lo cambio por titulo:"Película: título de la peli" y subtitulo:"título de la peli".
+                    //
+                    // Al entrar en los detalles de la emisión se hace redudante pero 
+                    // en la guia que tenemos en Kodi->Tv->Guia se ve muchísimo mejor. 
+                    //
+                    // Por cierto, este switch un poco abominable, y en otros lenguajes 
+                    // no funcionaría :-), fuente: 
+                    // http://stackoverflow.com/questions/2896626/switch-statement-for-string-matching-in-javascript
+
+                    // if (titulo.toLowerCase() === "cine" ||
+                    //     titulo.toLowerCase() === "cine estreno" ||
+                    //     titulo.toLowerCase() === "cine xtra" ||
+                    //     titulo.toLowerCase() === "cine inédito" ||
+                    //     titulo.toLowerCase().startsWith("cine : ")) {
+                    //     if (subtitulo.toLowerCase() !== "cine") {
+                    //         titulo = "Película: " + subtitulo;
+                    //     }
+                    //     categoria = "Movie";
+                    // }
+                    let str = titulo.toLowerCase();
+                    switch (true) {
+                        case /^dok xtra/.test(str):
+                            categoria = "Social";
+                            break;
+                        case /corto/.test(str):
+                            categoria = "Movie";
+                            break;
+                        case /cine/.test(str):
+                        case /cine estreno/.test(str):
+                        case /cine xtra/.test(str):
+                        case /cine inédito/.test(str):
+                        case /^cine : /.test(str):
+                            if ( str === "cine" && subtitulo.toLowerCase() === "cine" && pase.sinopsis_larga[0] === "Emisión de una película." ) {
+                                titulo = "Película"
+                                subtitulo = "Emisión de una película."
+                                categoria = "Movie";
+                            } else {
+                                if (subtitulo.toLowerCase() !== "cine") {
+                                    titulo = "Película: " + subtitulo;
+                                }
+                            }
+                            categoria = "Movie";
+                            break;
+                        case /^cinexpress/.test(str):
+                        case /^cinema-trix/.test(str):
+                        case /^cine /.test(str):
+                            categoria = "Movie";
+                            break;
+                        default:
+                            break;
+                    }
                     // Preparo el pase en el nuevo formato
+                    //
                     let programme = {
                         "$": {
                             "start": `${programme_start}`,
@@ -311,7 +370,7 @@ const utils = {
                             {
                                 "_": categoria,
                                 "$": {
-                                    "lang": langEN
+                                    "lang": langES
                                 }
                             }
                         ]
@@ -332,6 +391,7 @@ const utils = {
 
     // Tvheadend reconoce la categoría xmltv solo si coincide con alguna de las 
     // definidas en el estándar DVB. Ver el fuente de tvheadend/src/epg.c
+    // https://github.com/tvheadend/tvheadend/blob/master/src/epg.c
     // Además, solo tiene 10 configuradas. Este método mapea las que vienen
     // de Movistar a una de estas 10. 
     //
@@ -349,11 +409,11 @@ const utils = {
     getCategoria: function (original) {
         switch (original) {
             case 'Programa':
-                return "social";
+                return "Social";
             case 'Seriado':
-                return "show"
+                return "Show"
             default:
-                return "social";
+                return "Social";
         }
         return original;
     },
