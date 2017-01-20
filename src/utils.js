@@ -300,17 +300,14 @@ const utils = {
                     //
                     // "Movie / Drama" 
                     // "News / Current affairs" 
-                    // "Show / Games" 
+                    // "Show / Game show"
                     // "Sports" 
-                    // "Children's / Youth" 
-                    // "Music" 
-                    // "Art / Culture" 
+                    // "Children's / Youth programs" 
+                    // "Music / Ballet / Dance"
+                    // "Arts / Culture (without music)"
                     // "Social / Political issues / Economics" 
                     // "Education / Science / Factual topics" 
                     // "Leisure hobbies" 
-                    // "Special characteristics"
-                    //
-                    //  Échale un ojo al fuente y mira a ver si te conviene. 
                     //
                     // --------------------------------------------------------------------------
 
@@ -439,7 +436,7 @@ const utils = {
             case 'Programa':
                 return "Social / Political issues / Economics";
             case 'Seriado':
-                return "Show / Games"
+                return "Show / Game show"
             default:
                 return "Social / Political issues / Economics";
         }
