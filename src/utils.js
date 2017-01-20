@@ -301,10 +301,10 @@ const utils = {
                     let str = titulo.toLowerCase();
                     switch (true) {
                         case /^dok xtra/.test(str):
-                            categoria = "Social";
+                            categoria = "Social / Political issues / Economics";
                             break;
                         case /corto/.test(str):
-                            categoria = "Movie";
+                            categoria = "Movie / Drama";
                             break;
                         case /cine/.test(str):
                         case /cine estreno/.test(str):
@@ -314,18 +314,18 @@ const utils = {
                             if ( str === "cine" && subtitulo.toLowerCase() === "cine" && pase.sinopsis_larga[0] === "Emisión de una película." ) {
                                 titulo = "Película"
                                 subtitulo = "Emisión de una película."
-                                categoria = "Movie";
+                                categoria = "Movie / Drama";
                             } else {
                                 if (subtitulo.toLowerCase() !== "cine") {
                                     titulo = "Película: " + subtitulo;
                                 }
                             }
-                            categoria = "Movie";
+                            categoria = "Movie / Drama";
                             break;
                         case /^cinexpress/.test(str):
                         case /^cinema-trix/.test(str):
                         case /^cine /.test(str):
-                            categoria = "Movie";
+                            categoria = "Movie / Drama";
                             break;
                         default:
                             break;
@@ -409,11 +409,11 @@ const utils = {
     getCategoria: function (original) {
         switch (original) {
             case 'Programa':
-                return "Social";
+                return "Social / Political issues / Economics";
             case 'Seriado':
-                return "Show"
+                return "Show / Games"
             default:
-                return "Social";
+                return "Social / Political issues / Economics";
         }
         return original;
     },
