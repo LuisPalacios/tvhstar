@@ -1,3 +1,3 @@
 #!/bin/bash
-cd /home/luis/tvhstar/build
-node server.js
+cd /home/luis/tvhstar
+npm run build && npm run start
