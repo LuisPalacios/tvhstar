@@ -2,7 +2,7 @@
 
 Este proyecto realiza varias funciones:
 
-- Descarga periódica de la programación de TV (EPG) desde la web de Movistar
+- Descarga periódica de la programación de TV (EPG) desde la web de Movistar y creación de un fichero XMLTV compatible con Tvheadend
 - Creación de los ficheros tvHOME.m3u y tvREMOTE.m3u para ser consumidos por Tvheadend como fuentes para redes IPTV dinámicas
 - Logos de los programas de TV en formato 800x400 para ser consumidos por Tvheadend y sus clientes.
 
@@ -17,6 +17,13 @@ puedes seleccionar qué cadenas y formato (xml, csv, excel, texto) prefieres. El
 y no vale para Tvheadend. `tvhstar` descarga automáticamente la programación (una vez al día) utilizando
 una petición web de tipo POST parametrizado y convierte lo que recibe (XML movistar) a 
 XMLTV (compatible con Tvheadend). 
+
+Dado que en la web de Movistar no se incluye la CATEGORÍA de cada pase (programa) he incluido una 
+interpretación muy "personal" en los fuentes. Aprovecha varios "indicadores" para intentar 
+categorizar los pases. En unos casos es fácil (El título empieza por "Cine*") y en otros menos, 
+por ejemplo asigno la categoría a todos los pases de los canales temáticos (Canal Futbol: "todos
+los pases son "Sport"). Si esto no te convence echa un ojo al fuente ./src/utils.js y verás una 
+sección llamada "INICIO ZONA PERSONALIZADA !!!" para adaptarlo a tus gustos.
 
 
 ### Ficheros de configuración

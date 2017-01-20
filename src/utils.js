@@ -276,28 +276,58 @@ const utils = {
                         }
                     }
 
-                    // Casos especiales para KODI, (si no te convence, coménta esta zona)
-                    // 
+
+                    // --------------------------------------------------------------------------
+                    //  INICIO ZONA PERSONALIZADA !!!
+                    //
+                    //  Recordemos que este código está pensado para cuando trabajamos con 
+                    //  Tvheadend como backend y KODI como dispositivos.
+                    //
+                    //  En esta sección voy a hacer un par de cosas que puedes, si no te convence,
+                    //  comentar en tu caso. 
+                    //
+                    //  - Me he dado cuenta que casi todas las "Pelis" empiezan con un título
+                    //    "Cine*" así que lo cambio a "Película: nombr de la peli"
+                    //
+                    //  - Como NO viene la "Categoría" de cada pase, pues hago lo que puedo 
+                    //    desde los datos que tenemos, por ejemplo, casi todas las "Pelis" 
+                    //    tiene como título "Cine*", así que les asigno categoría "Movies..."
+                    //
+                    //  - Como ciertos canales sabemos que SON SÍ O SÍ de deportes, pues le 
+                    //    caso a todos sus programas la categoría "Sports..."
+                    //
+                    //  - Las categorías que utilizo son las compatibles con Tvheadend !!!!!!
+                    //
+                    // "Movie / Drama" 
+                    // "News / Current affairs" 
+                    // "Show / Games" 
+                    // "Sports" 
+                    // "Children's / Youth" 
+                    // "Music" 
+                    // "Art / Culture" 
+                    // "Social / Political issues / Economics" 
+                    // "Education / Science / Factual topics" 
+                    // "Leisure hobbies" 
+                    // "Special characteristics"
+                    //
+                    //  Échale un ojo al fuente y mira a ver si te conviene. 
+                    //
+                    // --------------------------------------------------------------------------
+
                     // - Si viene "Cine" en el título y "Título de la peli" en el subtítulo
                     //   lo cambio por titulo:"Película: título de la peli" y subtitulo:"título de la peli".
                     //
                     // Al entrar en los detalles de la emisión se hace redudante pero 
                     // en la guia que tenemos en Kodi->Tv->Guia se ve muchísimo mejor. 
                     //
-                    // Por cierto, este switch un poco abominable, y en otros lenguajes 
-                    // no funcionaría :-), fuente: 
-                    // http://stackoverflow.com/questions/2896626/switch-statement-for-string-matching-in-javascript
 
-                    // if (titulo.toLowerCase() === "cine" ||
-                    //     titulo.toLowerCase() === "cine estreno" ||
-                    //     titulo.toLowerCase() === "cine xtra" ||
-                    //     titulo.toLowerCase() === "cine inédito" ||
-                    //     titulo.toLowerCase().startsWith("cine : ")) {
-                    //     if (subtitulo.toLowerCase() !== "cine") {
-                    //         titulo = "Película: " + subtitulo;
-                    //     }
-                    //     categoria = "Movie";
-                    // }
+                    // Categoría por TIPO DE CADENA (ver cadenas*.js)
+                    if ( progPreferences.cadenasHOME[index].tvh_categoria ) {
+                        categoria = progPreferences.cadenasHOME[index].tvh_categoria;
+                    }
+
+                    // "switch(true)" abominable que no funciona en otros lenguajes :-)
+                    // http://stackoverflow.com/questions/2896626/switch-statement-for-string-matching-in-javascript
                     let str = titulo.toLowerCase();
                     switch (true) {
                         case /^dok xtra/.test(str):
@@ -330,6 +360,15 @@ const utils = {
                         default:
                             break;
                     }
+                    // --------------------------------------------------------------------------
+                    //  FIN ZONA PERSONALIZADA !!!
+                    // --------------------------------------------------------------------------
+
+
+                    // --------------------------------------------------------------------------
+                    // Conversión al nuevo formato
+                    // --------------------------------------------------------------------------
+
                     // Preparo el pase en el nuevo formato
                     //
                     let programme = {
@@ -395,17 +434,6 @@ const utils = {
     // Además, solo tiene 10 configuradas. Este método mapea las que vienen
     // de Movistar a una de estas 10. 
     //
-    // "Movie / Drama" 
-    // "News / Current affairs" 
-    // "Show / Games" 
-    // "Sports" 
-    // "Children's / Youth" 
-    // "Music" 
-    // "Art / Culture" 
-    // "Social / Political issues / Economics" 
-    // "Education / Science / Factual topics" 
-    // "Leisure hobbies" 
-    // "Special characteristics"
     getCategoria: function (original) {
         switch (original) {
             case 'Programa':
