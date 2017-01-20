@@ -1193,13 +1193,13 @@ const cadenasHOME = [
     "tvh_tag": "SD|HOME"
   },
   {
-    "movistar_epg": true,
+    "movistar_epg": false,
     "movistar_fuente": "239.0.7.66:8208",
     "movistar_id": "ALJAZE",
     "movistar_nombre": "Al Jazeera",
     "movistar_numero": "117",
     "tvh_id": "ALJAZE.es",
-    "tvh_m3u": true,
+    "tvh_m3u": false,
     "tvh_nombre": "Al Jazeera",
     "tvh_tag": "SD|HOME"
   },

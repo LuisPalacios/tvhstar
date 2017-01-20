@@ -1139,7 +1139,7 @@ const cadenasREMOTE = [
     "movistar_nombre": "Al Jazeera",
     "movistar_numero": "117",
     "tvh_id": "ALJAZE.es",
-    "tvh_m3u": true,
+    "tvh_m3u": false,
     "tvh_nombre": "Al Jazeera",
     "tvh_tag": "SD|REMOTE"
   },
