@@ -327,9 +327,21 @@ const utils = {
                     // http://stackoverflow.com/questions/2896626/switch-statement-for-string-matching-in-javascript
                     let str = titulo.toLowerCase();
                     switch (true) {
+
+                        // Fútbol: partidos
+                        case /laliga/.test(str):
+                            if (subtitulo.toLowerCase() !== "laliga") {
+                                titulo = "Fútbol: " + subtitulo;
+                            }
+                            categoria = "Football / Soccer";
+                            break;
+
+                        // Documentales
                         case /^dok xtra/.test(str):
                             categoria = "Social / Political issues / Economics";
                             break;
+
+                        // Cine
                         case /corto/.test(str):
                             categoria = "Movie / Drama";
                             break;
