@@ -666,7 +666,7 @@ const cadenasREMOTE = [
   {
     "movistar_epg": false,
     "movistar_fuente": "239.0.5.2:8208",
-    "movistar_id": "GOLF%2B",
+    "movistar_id": "GOLF+",
     "movistar_nombre": "Movistar Golf",
     "movistar_numero": "59",
     "tvh_categoria": "Sports",
@@ -741,8 +741,9 @@ const cadenasREMOTE = [
     "movistar_id": "CAZPES",
     "movistar_nombre": "Caza y Pesca",
     "movistar_numero": "65",
+    "tvh_categoria": "Nature / Animals / Environment",
     "tvh_id": "CAZPES.es",
-    "tvh_m3u": false,
+    "tvh_m3u": true,
     "tvh_nombre": "Caza y Pesca",
     "tvh_tag": "SD|REMOTE"
   },
@@ -1118,6 +1119,18 @@ const cadenasREMOTE = [
     "tvh_tag": "SD|REMOTE"
   },
   {
+    "movistar_epg": true,
+    "movistar_fuente": "239.0.4.65:8208",
+    "movistar_id": "MEZZO",
+    "movistar_nombre": "Mezzo",
+    "movistar_numero": "107",
+    "tvh_categoria": "Music / Ballet / Dance",
+    "tvh_id": "MEZZO.es",
+    "tvh_m3u": true,
+    "tvh_nombre": "Mezzo HD",
+    "tvh_tag": "HD|HOME"
+  },
+  {
     "movistar_epg": false,
     "movistar_fuente": "239.0.3.193:8208",
     "movistar_id": "CLASSI",
@@ -1125,7 +1138,7 @@ const cadenasREMOTE = [
     "movistar_numero": "109",
     "tvh_categoria": "Music / Ballet / Dance",
     "tvh_id": "CLASSI.es",
-    "tvh_m3u": false,
+    "tvh_m3u": true,
     "tvh_nombre": "Classica",
     "tvh_tag": "SD|REMOTE"
   },

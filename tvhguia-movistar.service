@@ -1,5 +1,5 @@
 [Unit]
-Description=tvhstar backend
+Description=Consigue guia via Movistar
 After=syslog.target network.target
 
 [Service]

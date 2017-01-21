@@ -704,7 +704,7 @@ const cadenasHOME = [
   {
     "movistar_epg": true,
     "movistar_fuente": "239.0.5.249:8208",
-    "movistar_id": "GOLF%2B",
+    "movistar_id": "GOLF+",
     "movistar_nombre": "Movistar Golf",
     "movistar_numero": "59",
     "tvh_categoria": "Sports",
@@ -774,13 +774,14 @@ const cadenasHOME = [
     "tvh_tag": "SD|HOME"
   },
   {
-    "movistar_epg": false,
+    "movistar_epg": true,
     "movistar_fuente": "239.0.6.54:8208",
     "movistar_id": "CAZPES",
     "movistar_nombre": "Caza y Pesca",
     "movistar_numero": "65",
+    "tvh_categoria": "Nature / Animals / Environment",
     "tvh_id": "CAZPES.es",
-    "tvh_m3u": false,
+    "tvh_m3u": true,
     "tvh_nombre": "Caza y Pesca HD",
     "tvh_tag": "HD|HOME"
   },
@@ -1169,7 +1170,7 @@ const cadenasHOME = [
     "tvh_tag": "HD|HOME"
   },
   {
-    "movistar_epg": true,
+    "movistar_epg": false,
     "movistar_fuente": "39.0.9.137:8208",
     "movistar_id": "CLASSI",
     "movistar_nombre": "Classica HD",
