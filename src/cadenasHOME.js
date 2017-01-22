@@ -546,7 +546,7 @@ const cadenasHOME = [
     "tvh_tag": "HD|HOME"
   },
   {
-    "movistar_epg": true,
+    "movistar_epg": false,
     "movistar_fuente": "239.0.5.84:8208",
     "movistar_id": "CPPART",
     "movistar_nombre": "Movistar Partidazo",
