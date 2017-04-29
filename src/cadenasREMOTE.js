@@ -521,7 +521,7 @@ const cadenasREMOTE = [
   },
   {
     "movistar_epg": false,
-    "movistar_fuente": "239.0.0.46:8208",
+    "movistar_fuente": "239.0.0.252:8208",
     "movistar_id": "BELIGA",
     "movistar_nombre": "Bein LaLiga",
     "movistar_numero": "47",
@@ -533,7 +533,7 @@ const cadenasREMOTE = [
   },
   {
     "movistar_epg": false,
-    "movistar_fuente": "239.0.0.47:8208",
+    "movistar_fuente": "239.0.0.253:8208",
     "movistar_id": "BELIG1",
     "movistar_nombre": "Bein LaLiga 1",
     "movistar_numero": "48",
@@ -545,7 +545,7 @@ const cadenasREMOTE = [
   },
   {
     "movistar_epg": false,
-    "movistar_fuente": "239.0.0.67:8208",
+    "movistar_fuente": "239.0.0.254:8208",
     "movistar_id": "BELIG2",
     "movistar_nombre": "Bein LaLiga 2",
     "movistar_numero": "49",

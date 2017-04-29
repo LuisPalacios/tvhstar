@@ -559,7 +559,7 @@ const cadenasHOME = [
   },
   {
     "movistar_epg": true,
-    "movistar_fuente": "239.0.5.106:8208",
+    "movistar_fuente": "239.0.5.252:8208",
     "movistar_id": "BELIGA",
     "movistar_nombre": "Bein LaLiga",
     "movistar_numero": "47",
@@ -571,7 +571,7 @@ const cadenasHOME = [
   },
   {
     "movistar_epg": true,
-    "movistar_fuente": "239.0.5.179:8208",
+    "movistar_fuente": "239.0.5.253:8208",
     "movistar_id": "BELIG1",
     "movistar_nombre": "Bein LaLiga 1",
     "movistar_numero": "48",
@@ -583,7 +583,7 @@ const cadenasHOME = [
   },
   {
     "movistar_epg": true,
-    "movistar_fuente": "239.0.5.180:8208",
+    "movistar_fuente": "239.0.5.254:8208",
     "movistar_id": "BELIG2",
     "movistar_nombre": "Bein LaLiga 2",
     "movistar_numero": "49",
